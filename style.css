@@ -1,0 +1,50 @@
+.top-bar{
+    background-color:white;
+    width:100%;
+    height:40px;
+
+}
+#website-logo{
+    float: center;
+    padding-top: 13px;
+    padding-bottom: 5px;
+    max-width: 16%;
+    max-height: 9%;
+}
+.nav-bar{
+    padding-top: 1px;
+    padding-bottom:0.3px;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.751);
+    width:100%;
+    height:40px;
+    font-family: SF Pro Display SemiBold;
+}
+.nav-bar ul{
+    
+}
+.nav-bar ul li{
+    display: inline;
+    margin: 20px;
+    font-family: SF Pro Display SemiBold;
+}
+.apple-font{
+    font-family:SF UI Display;
+}
+.fixed-width{
+    width:1000px;
+    margin:0 auto;
+}
+.full-fixed-width{
+    width:100%;
+    color: rgba(0, 0, 0, 0.751);
+}
+footer{
+    height: 3%;
+    min-width: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: black;
+    bottom: 0px;
+    text-align: center;
+}
