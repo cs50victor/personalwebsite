@@ -20,8 +20,7 @@
     "react-dom": "^16.13.1",
     "react-script-hook": "^1.0.17",
     "react-scripts": "3.4.1",
-    "scrollmagic": "^2.0.7",
-    "vanta": "^0.5.15"
+    "scrollmagic": "^2.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
