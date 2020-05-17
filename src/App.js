@@ -10,7 +10,6 @@ import './App.scss';
 
 //----------Cool Animations-----------------------
 import {TweenMax, Power3} from "gsap";
-import ScrollMagic from "scrollmagic";
 //--------------Assets----------------------
 import myface from "./images/face.png";
 
@@ -21,11 +20,10 @@ export default function App(){
   let animBoxHead = useRef(null);
   let moreDetails = useRef(null);
   let projectsBox = useRef(null);
-  const controller = new ScrollMagic.Controller();
 
   //--GSAP and Scroll Magic--------
   useEffect(()=>{
-    TweenMax.to(memojiText ,5,{opacity: 1,y: -70,ease: Power3.easeOut});
+    TweenMax.to(memojiText ,3,{opacity: 1,y: -70,ease: Power3.easeOut});
   })
   const menuToggle =()=> {
     return console.log("Great Shot!");

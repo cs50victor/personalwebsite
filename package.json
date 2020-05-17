@@ -12,22 +12,18 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "gsap": "^3.2.6",
-    "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
-    "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-script-hook": "^1.0.17",
-    "react-scripts": "3.4.1",
-    "scrollmagic": "^2.0.7"
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "npm run build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

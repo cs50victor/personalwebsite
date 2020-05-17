@@ -81,19 +81,17 @@ body {
     }
   }
   .fullHeight{
-    height: 100vh !important;
+    min-height: 100vh;
   }
   .content-wrapper{
     min-height: 100px;
     margin-top: 50.663px;
-    background: linear-gradient(180deg, rgb(15,48,42) 0%, white 50%, black 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px) ;
+    background: linear-gradient(180deg, rgb(15,48,42) 0%, rgb(141, 141, 141) 50%, black 100%);
   }
   .intro{
-    background-color: rgba(0, 0, 0, 0.329);
+    
     width: 50%;
-    height:100%;    
+    height:100vh;    
     h1{
       font-weight: 600;
       font-size: 3rem;
