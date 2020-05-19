@@ -11,6 +11,20 @@ Dieter Rams
 }
 
 @import "./breakpoints.scss";
+
+@mixin flex{
+  display: flex;
+}
+@mixin flex-center{
+  @include flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-down{
+  @include flex-center;
+  flex-direction: column;
+}
+
 //-------------------------------------------------------------------------------------------------------------------
 * , html{
   overflow-x: hidden;
@@ -43,8 +57,8 @@ body {
   height: 100%;
   color: white;
   font-family:  "Helvetica Neue", -apple-system, system-ui ,BlinkMacSystemFont, "Segoe UI", Roboto;
-  font-size: 16px;
-  background-color: rgb(0, 0, 0);
+  font-size: 16px /1.9em;
+  background-color: rgb(65, 122, 112);
   overflow: hidden;
   @include media("<=phone"){
     background-color:orangered;
@@ -52,8 +66,14 @@ body {
   img {
     image-rendering: auto;
   }
+  .center{
+    @include flex-center;
+  }
+  .centerDown{
+    @include flex-down;
+  }
   header{
-    background-color: rgba(0, 0, 0, 0.616);
+    background-color: rgba(0, 0, 0, 0.516);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
     border-bottom: 0.9px solid rgba(248, 248, 255, 0.397);
@@ -78,35 +98,71 @@ body {
           -webkit-filter: saturate(600%);
         }
       }
+      .menuRotate{
+        -moz-transform: scale(-1, -1);
+        -o-transform: scale(-1, -1);
+        -webkit-transform: scale(-1, -1);
+        transform: scale(-1, -1);
+        transition: transform 0.8s ease;
+      }
+      .menuOriginal{
+        transform: scale(1,1);
+        transition: transform 0.8s ease;
+      }
     }
   }
-  .fullHeight{
+  .intro1, .intro2, #techs {
     min-height: 100vh;
   }
   .content-wrapper{
     min-height: 100px;
     margin-top: 50.663px;
-    background: linear-gradient(180deg, rgb(15,48,42) 0%, rgb(141, 141, 141) 50%, black 100%);
+    background: linear-gradient( rgb(15,48,42) 5%,  rgb(255, 255, 255) 75%);
   }
   .intro{
-    
-    width: 50%;
     height:100vh;    
     h1{
       font-weight: 600;
-      font-size: 3rem;
+      font-size: 4rem;
       cursor: default;
     }
     a{
-      /*color: transparent !important;
-      -webkit-text-stroke: 0.7px white;*/
-    }
+      &:hover{
+        text-decoration: none;
+      }
+    } 
   }
-  #techs{
-    z-index: 566;
+  .moreIntro{
+    width: 60%;
+    max-width: 950px;
+    margin: 0 auto;
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: normal;
+    text-align: center;
+    font-stretch: normal;
+    font-style: normal;
   }
   .appear1{
     opacity:0;
+  }
+  .projects{
+    color: black;
+    h3{
+      line-height: 1.5;
+      font-size: 10vw;
+      kbd{
+        font-family: "SF Pro Text";
+      }
+    }
+    .card{
+      width: 30rem;
+      border-radius: 20px;
+      img{
+        max-height: 15rem;
+      }
+    }
   }
 }
 
