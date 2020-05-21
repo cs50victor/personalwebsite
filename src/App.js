@@ -9,29 +9,66 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './App.scss';
 
 //----------Cool Animations and Preload-----------------------
-import {Dots} from "react-preloaders";
-import {TweenMax, Power3} from "gsap";
-import {motion} from "framer-motion";
+import {TweenLite, Power3} from "gsap";
+import ScrollMagic from 'scrollmagic';
 //--------------Assets----------------------
+import Abi from "./Assets/abis.png";
 import myface from "./Assets/face.png";
 import resume from "./Assets/Victor Atasie's Resume.pdf";
 
 
 export default function App(){
   const [isIconRotated, setIsIconRotated] = useState(false);
-  const [loading, setLoading] = useState(true);
+  
+  let controller= new ScrollMagic.Controller();
 
   let introBox = useRef(null);
+  let aboutMe = useRef(null);
   let memojiText = useRef(null);
   let animBoxHead = useRef(null);
-  let moreDetails = useRef(null);
+  let techDiv = useRef(null);
   let projectsBox = useRef(null);
 
-  //--GSAP and Scroll Magic--------
+  //!-- rotate Header Menu Icon State
+  const rotateMenuIcon =()=>{
+    setIsIconRotated(isIconRotated => !isIconRotated)
+  }
+  //!--Current Year, GSAP and Scroll Magic--------
   useEffect(()=>{
-    setLoading(false);
-    TweenMax.to(memojiText ,3,{opacity: 1,y: -70,ease: Power3.easeOut});
-  })
+    //!--Current Year---------
+    const yearEl = document.querySelector(".currentYear");
+    const date = new Date();
+    const year = date.getFullYear();
+    yearEl.innerText = year;
+
+    //!--GSAP, TweenMax----
+    TweenLite.from(memojiText ,2,{opacity: 0,y: 0,ease: Power3.easeOut});
+    introBox.scrollTop = 0;
+
+    //!---ScrollMagic-----
+    let scene1 = new ScrollMagic.Scene({
+      triggerElement: introBox,
+      triggerHook:"onLeave",
+      offset: -50,
+      duration:"120%",
+    })
+    .setPin(introBox, {pushFollowers: false})
+    .addTo(controller)
+
+    const showTechDiv = TweenLite.to(techDiv, 0, {backgroundColor:"#000000", opacity: 1, ease:Power3.easeOut});
+    const blackAboutMe = TweenLite.to(aboutMe, 10,{backgroundColor:"#000000", opacity: 1, ease:Power3.easeOut});
+
+    let scene2 = new ScrollMagic.Scene({
+      triggerElement: aboutMe,
+      triggerHook:"onLeave",
+      duration:"120%",
+    })
+    .setTween(aboutMe, {backgroundColor: "black"})
+    .setPin(aboutMe, {pushFollowers: false})
+    .addTo(controller)
+
+    
+  },[]);
 
   return (
     <React.Fragment>
@@ -40,7 +77,7 @@ export default function App(){
           <nav className="navbar d-flex navbar-expand-md justify-content-between">
             <a className="navbar-brand" href="./">Victor Atasie</a>
             <button className="navbar-toggler" type="button" 
-               onClick={() => setIsIconRotated(isIconRotated => !isIconRotated)}
+               onClick={rotateMenuIcon}
                data-toggle="collapse" data-target="#menu">
               <FontAwesomeIcon icon={faAngleDown} 
                 color={"white"} size={"lg"} className={isIconRotated ? "menuRotate" : "menuOriginal"} />
@@ -73,7 +110,7 @@ export default function App(){
         </div>
       </header>
       <div className="content-wrapper"role="main">
-        <div className="intro1 center" 
+        <div className="intro1" 
          ref={el =>{introBox = el}} >
           <div className="intro text-center my-0 centerDown" ref={el =>{animBoxHead = el}} >
             <div ref={el => {memojiText = el}} className="appear1 mt-1">
@@ -81,9 +118,9 @@ export default function App(){
                   <br/>
                  <strong>Victor Atasie</strong>
               </h1>
-              <img src={myface} alt="my face memoji" width="200px"/>
+              <img src={myface} alt="my face memoji"  className="img-fluid"/>
               <br/>
-              <a href={resume} class="btn btn-primary mb-2" target="_blank" rel="noopener noreferrer">
+              <a href={resume} className="btn btn-primary mb-2" target="_blank" rel="noopener noreferrer">
                 Resume
               </a>
               <br/>
@@ -95,73 +132,73 @@ export default function App(){
             </div>
           </div>
         </div>
-        <div className="center moreIntro">
-          <p> 
-            I'm a web designer / developer based in Toronto, Canada. 
-            I have a passion for web design and love to create for web 
-            and mobile devices.
-          </p>
-        </div>
-        <div  id="techs" className="container"
-          ref={el => {moreDetails = el}}>
-          <div class="row">
-            <div class="col-4">
-              <div class="list-group" id="list-tab" role="tablist">
-                <a class="list-group-item d-flex justify-content-between align-items-center
-                  list-group-item-action active" 
-                  id="list-home-list" data-toggle="list" href="#list-home" 
-                  role="tab" aria-controls="home">
-                  Home
-                  <span class="badge badge-danger badge-pill">1</span>
-                </a>
-                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
-                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
-                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
-              </div>
+        <div className="moreIntro center px-5"
+          ref={el => {aboutMe = el}}>
+            <div className="centerLittleText">
+              <p> 
+                I'm a web designer / developer based in Toronto, Canada.
+                <br/> 
+                I have a passion for web design and love to create for web 
+                and mobile devices. Always up for learning new things.
+              </p>
             </div>
-            <div class="col-8">
-              <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                  Irure enim occaecat labore 
-                  sit qui aliquip reprehenderit amet velit. 
-                  Deserunt ullamco ex elit nostrud ut dolore nisi 
-                  officia magna sit occaecat laboris sunt dolor. Nisi eu minim cillum occaecat aute
-                  est cupidatat aliqua labore aute occaecat ea aliquip sunt amet.
-                </div>
-                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                  Irure enim occaecat labore 
-                  sit qui aliquip reprehenderit amet velit. 
-                  Deserunt ullamco ex elit nostrud ut dolore nisi 
-                  officia magna sit occaecat laboris sunt dolor. Nisi eu minim cillum occaecat aute
-                  est cupidatat aliqua labore aute occaecat ea aliquip sunt amet.
-                </div>
-                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                  Irure enim occaecat labore 
-                  sit qui aliquip reprehenderit amet velit. 
-                  Deserunt ullamco ex elit nostrud ut dolore nisi 
-                  officia magna sit occaecat laboris sunt dolor. Nisi eu minim cillum occaecat aute
-                  est cupidatat aliqua labore aute occaecat ea aliquip sunt amet.
-                </div>
-                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-                  Irure enim occaecat labore 
-                  sit qui aliquip reprehenderit amet velit. 
-                  Deserunt ullamco ex elit nostrud ut dolore nisi 
-                  officia magna sit occaecat laboris sunt dolor. Nisi eu minim cillum occaecat aute
-                  est cupidatat aliqua labore aute occaecat ea aliquip sunt amet.
-                </div>
+        </div>
+        <div className="techs pb-5" ref={el => {techDiv = el}}>
+          <div class="container">     
+            <div class="row flex mx-2">
+              <div class="col-12">
+                    <h3 className="my-3">Programming Languages</h3>
+                    <div className="box">
+                      <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                      <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                      <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                      <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                      <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    </div>     
+                    <h5 className="my-3">Programming Languages</h5>             
+              </div>
+              <div class="col-12">
+                  <h3 className="my-3">Libraries & Frameworks</h3>
+                  <div className="box">
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                  </div>
+              </div>
+              <div class="col-12">
+                  <h3 className="my-3">Tools & Platforms</h3>
+                  <div className="box">
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                  </div>
+              </div>
+              <div class="col-12">
+                  <h3 className="my-3">Design</h3>
+                  <div className="box">
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                  </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="container projects mb-5 px-5" id={"projects"} ref={el => {projectsBox = el}}>
+        <div className="container projects mb-5 px-5" id="projects" ref={el => {projectsBox = el}}>
           <hr/>
-          <h3 className="ml-5">
+          <h3 className="ml-1">
            <kbd>Projects</kbd>
           </h3>
           <br/>
           <div className="row mb-5 pb-md-4 align-items-center">
             <div className="col-md-5">
-              <img class="img-fluid mt-3 mx-auto mb-5"
+              <img className="img-fluid mt-3 mx-auto mb-5"
                 src="https://images.unsplash.com/photo-1588775286394-488d8cf1c8e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                 alt="Random" loading="lazy" width="700" height="500"></img>
             </div>
@@ -175,15 +212,15 @@ export default function App(){
                 Themes are built on Bootstrap as their own extended frameworks, 
                 rich with new components and plugins, documentation, and powerful build tools.
               </p>
-              <a href="#" className="btn btn-lg btn-outline-primary mb-3">Live Demo</a>
-              <a href="#" className="btn btn-lg btn-outline-primary mb-3">Source code on Github</a>
+              <a href="#" className="btn btn-lg btn-outline-primary mb-3 mr-2">Live Demo</a>
+              <a href="#" className="btn btn-lg btn-outline-primary mb-3 mr-2">Source code on Github</a>
             </div>
           </div>
           <div className="row mb-5 pb-md-4 align-items-center">
             <div className="col-md-5">
-              <img class="img-fluid mt-3 mx-auto mb-5"
-                src="https://images.unsplash.com/photo-1588775286394-488d8cf1c8e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="Random" loading="lazy" width="700" height="500"></img>
+              <img className="img-thumbnail mt-3 mx-auto mb-5"
+                src={Abi} 
+                alt="Abi's Organics Screenshot" loading="lazy" width="700" height="500"></img>
             </div>
             <div className="col-md-7 pl-md-5">
               <h2>Official Themes</h2>
@@ -195,13 +232,13 @@ export default function App(){
                 Themes are built on Bootstrap as their own extended frameworks, 
                 rich with new components and plugins, documentation, and powerful build tools.
               </p>
-              <a href="#" className="btn btn-lg btn-outline-primary mb-3">Live Demo</a>
-              <a href="#" className="btn btn-lg btn-outline-primary mb-3">Source code on Github</a>
+              <a href="#" className="btn btn-lg btn-outline-primary mb-3 mr-2">Live Demo</a>
+              <a href="#" className="btn btn-lg btn-outline-primary mb-3 mr-2">Source code on Github</a>
             </div>
           </div>
           <div className="row mb-5 pb-md-4 align-items-center">
             <div className="col-md-5">
-              <img class="img-fluid mt-3 mx-auto mb-5"
+              <img className="img-fluid mt-3 mx-auto mb-5"
                 src="https://images.unsplash.com/photo-1588775286394-488d8cf1c8e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                 alt="Random" loading="lazy" width="700" height="500"></img>
             </div>
@@ -215,14 +252,13 @@ export default function App(){
                 Themes are built on Bootstrap as their own extended frameworks, 
                 rich with new components and plugins, documentation, and powerful build tools.
               </p>
-              <a href="#" className="btn btn-lg btn-outline-primary mb-3">Live Demo</a>
-              <a href="#" className="btn btn-lg btn-outline-primary mb-3">Source code on Github</a>
+              <a href="#" className="btn btn-md btn-outline-primary mb-3 mr-2">Live Demo</a>
+              <a href="#" className="btn btn-md btn-outline-primary mb-3 mr-2">Source code on Github</a>
             </div>
           </div>
         </div>
       </div>
-      <footer className="text-center text-muted py-4 bg-white"><span>&#169;</span> 2020 | Designed and Built by Victor Atasie</footer>
-      <Dots customLoading={loading} background="#000000" color="#ffffff" animation="slide-up" style={{overflow:"hidden"}}/>
+      <footer className="text-center text-white py-4"><span>&#169;</span><span className="currentYear"></span> | Designed and Built by Victor Atasie</footer>
     </React.Fragment>
   );
 }

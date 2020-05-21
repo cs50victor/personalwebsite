@@ -1,6 +1,9 @@
 /* “Good design is as little design as possible.”
 Dieter Rams 
 */
+@import "bootstrap"; 
+$enable-responsive-font-sizes: true;
+
 @font-face {
   font-family: "SF Pro Text";
   src: url("//db.onlinewebfonts.com/t/28adc6c6fd652123c3e173389a8be17f.woff");
@@ -14,6 +17,8 @@ Dieter Rams
 
 @mixin flex{
   display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
 }
 @mixin flex-center{
   @include flex;
@@ -23,6 +28,19 @@ Dieter Rams
 @mixin flex-down{
   @include flex-center;
   flex-direction: column;
+}
+@mixin noSelectOrDrag{
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+  -o-user-select: none;
+  user-select: none;
+  user-drag: none;
+  cursor: default;
+  
 }
 
 //-------------------------------------------------------------------------------------------------------------------
@@ -36,7 +54,7 @@ Dieter Rams
   -webkit-text-size-adjust: 100%;
 }
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 7px;
 } 
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px rgb(0, 0, 0); 
@@ -57,14 +75,12 @@ body {
   height: 100%;
   color: white;
   font-family:  "Helvetica Neue", -apple-system, system-ui ,BlinkMacSystemFont, "Segoe UI", Roboto;
-  font-size: 16px /1.9em;
-  background-color: rgb(65, 122, 112);
+  font-size: 16px;
+  background-color: rgb(0, 0, 0);
   overflow: hidden;
-  @include media("<=phone"){
-    background-color:orangered;
-  }
   img {
     image-rendering: auto;
+    @include noSelectOrDrag;
   }
   .center{
     @include flex-center;
@@ -72,12 +88,23 @@ body {
   .centerDown{
     @include flex-down;
   }
+  .appear1{
+    opacity:1;
+  }
   header{
     background-color: rgba(0, 0, 0, 0.516);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
     border-bottom: 0.9px solid rgba(248, 248, 255, 0.397);
     line-height: inherit;
+    position: fixed;
+    z-index: 300;
+    .container{
+      @include media("<1000px"){
+        margin:0;
+        max-width: 100%;
+      }
+    }
     nav{
       text-align: center;
       a{
@@ -92,8 +119,10 @@ body {
       .nav-item a{
         font-size: 1.3333333333em;
         line-height: 0.75em;
+        outline: none;
         &:hover{
-          color:rgb(128, 204, 189);
+          outline: none;
+          color:rgb(61, 131, 117);
           filter: saturate(600%);
           -webkit-filter: saturate(600%);
         }
@@ -103,64 +132,119 @@ body {
         -o-transform: scale(-1, -1);
         -webkit-transform: scale(-1, -1);
         transform: scale(-1, -1);
-        transition: transform 0.8s ease;
+        transition: transform 0.5s ease;
       }
       .menuOriginal{
+        -moz-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        -webkit-transform: scale(1, 1);
         transform: scale(1,1);
-        transition: transform 0.8s ease;
+        transition: transform 0.5s ease;
       }
     }
-  }
-  .intro1, .intro2, #techs {
-    min-height: 100vh;
   }
   .content-wrapper{
     min-height: 100px;
+    width: 100%;
     margin-top: 50.663px;
-    background: linear-gradient( rgb(15,48,42) 5%,  rgb(255, 255, 255) 75%);
-  }
-  .intro{
-    height:100vh;    
-    h1{
-      font-weight: 600;
-      font-size: 4rem;
-      cursor: default;
+    background: linear-gradient( rgb(15,48,42) 5%,  rgb(0, 0, 0) 50%);
+    .intro, .moreIntro, .techs {
+      @include flex-center;
+      position: relative;
     }
-    a{
-      &:hover{
-        text-decoration: none;
-      }
-    } 
-  }
-  .moreIntro{
-    width: 60%;
-    max-width: 950px;
-    margin: 0 auto;
-    font-size: 29px;
-    font-weight: 400;
-    line-height: 38px;
-    letter-spacing: normal;
-    text-align: center;
-    font-stretch: normal;
-    font-style: normal;
-  }
-  .appear1{
-    opacity:0;
-  }
-  .projects{
-    color: black;
-    h3{
-      line-height: 1.5;
-      font-size: 10vw;
-      kbd{
-        font-family: "SF Pro Text";
-      }
+    .intro, .moreIntro{
+      height: 100vh;
     }
-    .card{
-      width: 30rem;
-      border-radius: 20px;
+    .intro{ 
+      
+      h1{
+        font-weight: 600;
+        font-size: 4rem;
+        cursor: default;
+      }
       img{
-        max-height: 15rem;
+        height: 40vmin;
+      }
+      a{
+        &:hover{
+          text-decoration: none;
+        }
+      } 
+    }
+    .moreIntro{
+      width: 100%;
+      margin: 0 auto;
+      font-size: 29px;
+      font-weight: 400;
+      line-height: 38px;
+      letter-spacing: normal;
+      text-align: center;
+      font-stretch: normal;
+      font-style: normal;
+      background-color: rgba(0, 0, 0, 0);
+      .centerLittleText{
+        width: 100%;
+        max-width: 500px;
+        p{
+          color: wheat;
+        }
+      }
+    }
+    .techs{
+      .container{
+        width: 95%;
+        max-width: 550px;
+        margin: 0 auto;
+        .row.flex{
+          @include flex-down;
+          flex-wrap: wrap;
+          .col-12{
+            flex-grow: 1;
+            border-radius: 2px;
+            border: 1.1px solid rgb(134, 134, 134);
+            .box{
+              height: 100%;
+              text-align: center;
+              align-items: center;
+              justify-content: center;
+              img{
+                max-height: 150px;
+                max-width: 100px;
+                padding: 0.5em;
+              }
+            }
+          }
+        }
+         
+      }
+    }
+    .projects{
+      color: rgb(168, 178, 209);
+      h3{
+        line-height: 1.5;
+        font-size: 8vw;
+        kbd{
+          font-family: "SF Pro Text";
+          background-color: transparent;
+          color: rgb(255, 255, 255);
+        }
+      }
+      .row{
+        h2{
+          color: rgb(216, 216, 216);
+        }
+      }
+      a.btn{
+        color: wheat;
+        border: 1px solid rgb(134, 134, 134);
+        border-radius: 20px;
+        &:hover{
+          border-radius: 20px;
+          border: 1px solid rgb(156, 156, 156);
+          color: white;
+          transition: 0.2s ease-out;
+          background-color: darkblue;
+        }
       }
     }
   }
