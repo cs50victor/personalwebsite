@@ -35,7 +35,6 @@ $enable-responsive-font-sizes: true;
   -webkit-user-drag: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  pointer-events: none;
   -o-user-select: none;
   user-select: none;
   user-drag: none;
@@ -91,11 +90,14 @@ body {
   .appear1{
     opacity:1;
   }
-  header{
+  .appleBlur{
     background-color: rgba(0, 0, 0, 0.516);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 0.9px solid rgba(248, 248, 255, 0.397);
+    border-bottom: 0.9px solid rgba(248, 248, 255, 0.397); 
+    transition: all 0.25s ease-in;
+  }
+  header{
     line-height: inherit;
     position: fixed;
     z-index: 300;
@@ -146,7 +148,7 @@ body {
   .content-wrapper{
     min-height: 100px;
     width: 100%;
-    margin-top: 50.663px;
+    //margin-top: 50.663px;
     background: linear-gradient( rgb(15,48,42) 5%,  rgb(0, 0, 0) 50%);
     .intro, .moreIntro, .techs {
       @include flex-center;
@@ -156,18 +158,31 @@ body {
       height: 100vh;
     }
     .intro{ 
-      
       h1{
         font-weight: 600;
         font-size: 4rem;
         cursor: default;
+        &:hover{
+          filter:brightness(100%);
+        }
       }
       img{
         height: 40vmin;
+        filter: contrast(120%);
+        &:hover{
+          filter: grayscale(100%);
+        }
       }
       a{
+        text-decoration: none;
+      }
+      a.btn{
+        background-color: darkblue;
+        border-radius: 10px;
         &:hover{
           text-decoration: none;
+          background-color: rgb(37, 37, 190);
+          border-radius: 20px;
         }
       } 
     }
@@ -186,7 +201,9 @@ body {
         width: 100%;
         max-width: 500px;
         p{
+          font-size: calc(16px + (32 - 16) * ((100vw - 300px) / (1600 - 300)));
           color: wheat;
+          line-height: 1.3;
         }
       }
     }
@@ -210,7 +227,12 @@ body {
               img{
                 max-height: 150px;
                 max-width: 100px;
-                padding: 0.5em;
+                padding: 0.45em;
+                @include media("<370px"){
+                  max-width: 70px;
+                  max-height: 105px;
+                  padding: 0.35em;
+                }
               }
             }
           }
@@ -250,3 +272,5 @@ body {
   }
 }
 
+
+// : )
