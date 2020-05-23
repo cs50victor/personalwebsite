@@ -36,17 +36,30 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        text-align: center;
       }
       .preloader >img{
         height: 50vmin;
         overflow: hidden;
-        image-rendering: auto;
+        image-rendering: pixelated;
       }
       .proloader > h1{
+        text-align: center;
         overflow: hidden;
+        font-size: calc(16px + (32 - 16) * ((100vw - 300px) / (1600 - 300)));
       }
       .preloader.hidden{
+        -webkit-animation:fadeOut 1s;
+        -webkit-animation-delay:3s;
+        -webkit-animation-fill-mode:forwards;
+        -moz-animation:fadeOut 1s;
+        -moz-animation-delay:3s;
+        -moz-animation-fill-mode:forwards;
+        animation:fadeOut 1s;
+        animation-delay:1s;
+        animation-fill-mode:forwards;
         animation: fadeOut 1s;
+        animation-delay: 1.55s;
         animation-fill-mode: forwards;
       }
       @keyframes fadeOut {
@@ -62,10 +75,9 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to use this website.</noscript>
-    <div class="preloader" style="position:fixed; overflow: hidden;">
-      <img src="loading.gif" alt="Loading..."/>
-      <br/>
-      <h1>Entering Victor Universe</h1>
+    <div class="preloader">
+      </br>
+      <h1>Loading</h1>
     </div>
     <div id="root" class="hide"></div>
     <script>
@@ -74,8 +86,9 @@
         const reactContainer = document.querySelector(".hide")
         const loader = document.querySelector(".preloader");
         loader.className += " hidden"; 
-        reactContainer.classList -= " hide";  
-              
+        reactContainer.classList -= " hide";
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;  
       })
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->

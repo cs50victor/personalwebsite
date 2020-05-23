@@ -95,7 +95,7 @@ body {
     position: fixed;
     z-index: 300;
     &.appleBlur{
-      background-color: rgba(0, 0, 0, 0.516);
+      background-color: rgba(0, 0, 0, 0.425);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 0.9px solid rgba(248, 248, 255, 0.397); 
@@ -124,9 +124,9 @@ body {
         outline: none;
         &:hover{
           outline: none;
-          color:rgb(61, 131, 117);
-          filter: saturate(600%);
-          -webkit-filter: saturate(600%);
+          color:wheat;
+          filter: saturate(200%);
+          -webkit-filter: saturate(200%);
         }
       }
       .menuRotate{
@@ -151,7 +151,7 @@ body {
     //margin-top: 50.663px;
     // brichang green rgb(15,48,42)
     background: linear-gradient( rgb(0, 0, 0) 5%,  rgb(0, 0, 0) 80%);
-    .intro, .moreIntro, .techs {
+    .intro, .moreIntro {
       @include flex-center;
       position: relative;
     }
@@ -165,6 +165,9 @@ body {
         font-size: 4rem;
         overflow: hidden;
         cursor: default;
+        strong{
+          color: wheat;
+        }
       }
       img{
         height: 40vmin;
@@ -210,32 +213,51 @@ body {
       }
     }
     .techs{
+      position: relative;
       .container{
-        width: 95%;
-        max-width: 550px;
+        width: 100%;
+        max-width: 780px;
         margin: 0 auto;
+        @include media("<400"){
+          padding-left: 0;
+          padding-right: 0;
+        }
+        //color: white;
         .row.flex{
-          @include flex-down;
-          flex-wrap: wrap;
-          .col-12{
-            flex-grow: 1;
+          //@include flex-down;
+          .col-6{
             border-radius: 2px;
             border: 1.1px solid rgb(134, 134, 134);
+            overflow: hidden;
             .box{
-              height: 100%;
               text-align: center;
               align-items: center;
               justify-content: center;
+              overflow: hidden;
               img{
-                max-height: 150px;
-                max-width: 100px;
+                height: calc(32 + (150 - 32) * ((100vw - 300px) / (1600 - 300)));
+                width: calc(32px + (100 - 52) * ((100vw - 300px) / (1600 - 300)));;;
                 padding: 0.45em;
                 @include media("<370px"){
-                  max-width: 70px;
-                  max-height: 105px;
-                  padding: 0.35em;
+                  padding: 0.25em;
+                }
+                &:hover{
+                  -webkit-filter: grayscale(100%);
+                  filter: grayscale(100%);
+                  transform: scale(1.1);
                 }
               }
+            }
+            h5{
+              color: wheat;
+              font-size:calc(14px + (20 - 15) * ((100vw - 300px) / (1600 - 300)));
+            }
+            small{
+              color: rgb(204, 204, 204);
+              font-weight: 100;
+              text-transform: lowercase;
+              word-wrap: break-word;
+              font-size:calc(12px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
             }
           }
         }
@@ -243,7 +265,7 @@ body {
       }
     }
     .projects{
-      color: rgb(168, 178, 209);
+      color: rgb(194, 194, 194);
       h3{
         line-height: 1.5;
         font-size: 8vw;
@@ -254,8 +276,12 @@ body {
         }
       }
       .row{
-        h2{
-          color: rgb(216, 216, 216);
+        h4{
+          color: white;
+          text-decoration: underline;
+        }
+        a img{
+          cursor: pointer;
         }
       }
       a.btn{

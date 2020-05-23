@@ -8,27 +8,39 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './App.scss';
 //----------Cool Animations and Preload-----------------------
-import {TweenLite, TimelineLite, Power3} from "gsap";
+import {gsap} from "gsap";
+
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 //--------------Assets----------------------
-import css from "./Assets/techSvg/css-3.svg"
 import myface from "./Assets/face.png";
 import resume from "./Assets/Victor Atasie's Resume.pdf";
+import css from "./Assets/techSvg/css-3.svg";
+import html from "./Assets/techSvg/html5.svg";
+import sass from "./Assets/techSvg/sass.svg";
+import javascript from "./Assets/techSvg/javascript.svg";
+import jquery from "./Assets/techSvg/jquery.svg";
+import react from "./Assets/techSvg/react.svg";
+import node from "./Assets/techSvg/nodejs.svg";
+import express from "./Assets/techSvg/express.svg";
+import git from "./Assets/techSvg/git.svg";
+import webpack from "./Assets/techSvg/webpack.svg";
+import netlify from "./Assets/techSvg/netlify.svg";
+import wordpress from "./Assets/techSvg/wordpress.svg";
+import figma from "./Assets/techSvg/figma.svg";
+import bootstrapStudio from "./Assets/techSvg/bootstrapstudio.png";
+import photoshop from "./Assets/techSvg/photoshop.svg";
+import elon from "./Assets/elon.png";
 import Abi from "./Assets/abis.png";
 
-ScrollMagicPluginGsap(ScrollMagic, TweenLite, TimelineLite);
+ScrollMagicPluginGsap(ScrollMagic, gsap);
+
 export default function App(){
   const [isIconRotated, setIsIconRotated] = useState(false);
-  
-  let controller= new ScrollMagic.Controller();
 
   let introBox = useRef(null);
   let aboutMe = useRef(null);
   let memojiText = useRef(null);
-  let animBoxHead = useRef(null);
-  let techDiv = useRef(null);
-  let projectsBox = useRef(null);
 
   //!-- rotate Header Menu Icon State
   const rotateMenuIcon =()=>{
@@ -36,41 +48,25 @@ export default function App(){
   }
   //!--Current Year, GSAP and Scroll Magic--------
   useEffect(()=>{ 
-    //!-- Header color and blur change on scroll
-    const header = document.querySelector(".fixed-top");
-    window.onscroll = () => {
-      if(window.scrollY >= 50.663) header.classList.add("appleBlur"); 
-      else header.classList.remove("appleBlur");
-    };
-    //!--GSAP, TweenLite----
-    let tl1 = new TimelineLite();
-    tl1.to(
-      introBox, 1, {backgroundColor: "black",ease: Power3.easeOut}
-    ).to(
-      memojiText, 1, {opacity: 0, ease: Power3.easeNone}, "-= 10"
-    ).to(
-      aboutMe, 1, {backgroundColor: "black",ease: Power3.easeOut}, "+=2"
-    );
-
-    //!---ScrollMagic-----
-    let scene1 = new ScrollMagic.Scene({
+    let controller= new ScrollMagic.Controller();
+    //!---ScrollMagic and Gsap-----
+    new ScrollMagic.Scene({
       triggerElement: introBox,
       triggerHook:"onLeave",
-      duration:"120%",
+      duration:"100%",
     })
     .setPin(introBox, {pushFollowers: false})
-    .setTween(tl1)
+    .setTween(gsap.to(memojiText,{opacity: 0, duration: 2, ease: "power3.out"}))
     .addTo(controller);
 
-    let scene2 = new ScrollMagic.Scene({
+    new ScrollMagic.Scene({
       triggerElement: aboutMe,
       triggerHook:"onLeave",
-      duration:"120%",
+      duration:"90%",
     })
     .setPin(aboutMe, {pushFollowers: false})
-    .addTo(controller)
-
-    
+    .setTween(gsap.to(aboutMe,{opacity: 0, duration: 2, ease: "power3.out"}))
+    .addTo(controller);
 
     //*--Current Year in Footer---------
     const yearEl = document.querySelector(".currentYear");
@@ -81,7 +77,7 @@ export default function App(){
 
   return (
     <React.Fragment>
-      <header className={isIconRotated ? "appleBlur fixed-top" : "fixed-top"}>
+      <header className="fixed-top appleBlur">
         <div className="container">
           <nav className="navbar d-flex navbar-expand-md justify-content-between">
             <a className="navbar-brand" href="./">Victor Atasie</a>
@@ -121,9 +117,10 @@ export default function App(){
       <div className="content-wrapper"role="main">
         <div className="introBox" 
          ref={el =>{introBox = el}} >
-          <div className="intro text-center my-0 centerDown" ref={el =>{animBoxHead = el}} >
+          <div className="intro text-center my-0 centerDown">
             <div ref={el => {memojiText = el}} className="appear1 mt-1">
-              <h1><small className="lead">Hi, my name is</small>
+              <h1>
+                <small className="lead">Hi, my name is</small>
                   <br/>
                  <strong>Victor Atasie</strong>
               </h1>
@@ -145,61 +142,66 @@ export default function App(){
           ref={el => {aboutMe = el}} id="moreMe">
             <div className="centerLittleText">
               <p> 
-                I'm a web designer and developer schooling in Athens, West Virginia.
+                I'm a web designer/developer and aspiring software engineer 
+                 <br/>
+                 based in Athens, West Virginia.
                 <br/> 
-                I have a passion for web design and love to create for web 
-                and mobile devices. Always up for learning new things.
+                  I enjoy solving problems and
+                  <br/>
+                  learning new things.
+                <br/>
+                Here are a few technologies, platforms & languages I currently use-
               </p>
             </div>
         </div>
-        <div className="techs pb-5" ref={el => {techDiv = el}}>
+        <div className="techs pb-5">
           <div className="container">     
-            <div className="row flex mx-2">
-              <div className="col-12">
-                    <div className="box mt-5">
-                      <img className="img-thumbnail bg-white" src={css} alt="test"/>
-                      <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                      <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                      <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                      <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    </div>     
-                    <h5 className="mt-3">Programming Languages</h5> 
-                    <small>CSS</small>            
-              </div>
-              <div className="col-12">
+            <div className="row flex mt-5">
+              <div className="col-6">
                   <div className="box mt-5">
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                  </div>
-                  <h5 className="my-3">Libraries and frameworks</h5>
+                    <img className="img-thumbnail" src={html} alt="html"/>
+                    <img className="img-thumbnail m-1" src={css} alt="css"/>
+                    <img className="img-fluid" src={sass} alt="sass"/>
+                    <img className="img-fluid" src={javascript} alt="javascript"/>
+                  </div>     
+                  <h5 className="mt-3">Programming Languages</h5> 
+                  <small className="blockquote-footer">HTML~CSS/SASS~JAVASCRIPT</small>            
               </div>
-              <div className="col-12">
+              <div className="col-6">
                   <div className="box mt-5">
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-thumbnail" src={jquery} alt="jquery"/>
+                    <img className="img-fluid" src={react} alt="react"/>
+                    <img className="img-thumbnail" src={node} alt="node"/>
+                    <img className="img-thumbnail m-1" src={express} alt="express"/>
+                  </div>     
+                  <h5 className="mt-5">Libraries and Frameworks</h5> 
+                  <small className="blockquote-footer">jquery~react~Node.js~Express</small>            
+              </div>
+            </div>
+            <div className="row flex">
+              <div className="col-6">
+                  <div className="box mt-5">
+                    <img className="img-thumbnail" src={git} alt="git"/>
+                    <img className="img-fluid" src={webpack} alt="webpack"/>
+                    <img className="img-fluid" src={netlify} alt="netlify"/>
+                    <img className="img-thumbnail" src={wordpress} alt="wordpress"/>
                   </div>
                   <h5 className="my-3">Tools & Platforms</h5>
+                  <small className="blockquote-footer">Git~Webpack~Netlify~Wordpress</small>            
               </div>
-              <div className="col-12">
+              <div className="col-6">
                   <div className="box mt-5">
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
-                    <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
+                    <img className="img-fluid" src={figma} alt="figma"/>
+                    <img className="img-fluid" src={bootstrapStudio} alt="bootstrap studio"/>
+                    <img className="img-fluid" src={photoshop} alt="photoshop"/>
                   </div>
                   <h5 className="my-3">Design</h5>
+                  <small className="blockquote-footer">Figma~Bootstrap Studio~Photoshop</small>            
               </div>
             </div>
           </div>
         </div>
-        <div className="projects container my-5 px-5" id="projects" ref={el => {projectsBox = el}}>
+        <div className="projects container my-5 px-5" id="projects">
           <hr/>
           <h3 className="ml-1">
            <kbd>Projects</kbd>
@@ -207,62 +209,58 @@ export default function App(){
           <br/>
           <div className="row mb-5 pb-md-4 align-items-center">
             <div className="col-md-5">
-              <img className="img-fluid mt-3 mx-auto mb-5"
-                src="https://images.pexels.com/photos/2101839/pexels-photo-2101839.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
-                alt="Random" loading="lazy" width="700" height="500"></img>
+              <a href="https://elonautomobiles.netlify.app"
+                rel="noopener noreferrer" target="_blank">
+                <img className="img-thumbnail mt-3 mx-auto mb-5"
+                  src={elon}
+                  alt="Elon Automobiles screenshot" loading="lazy" width="700" height="500">
+                </img>
+              </a>
             </div>
             <div className="col-md-7 pl-md-5">
-              <h2>Official Themes</h2>
-              <p className="lead font-weight-normal">
-                Themes are built on Bootstrap as their own extended frameworks, 
-                rich with new components and plugins, documentation, and powerful build tools.
+              <h4>Bootstrap Landing Page</h4>
+              <p>
+                Name: Elon Automobiles
+                <br/>
+                Made with : HTML, CSS & Bootstrap.
               </p>
               <p>
-                Themes are built on Bootstrap as their own extended frameworks, 
-                rich with new components and plugins, documentation, and powerful build tools.
+                A simple landing page for a fictional car company.
               </p>
-              <a href="#" className="btn btn-md btn-outline-primary mb-3 mr-2">Live Demo</a>
-              <a href="#" className="btn btn-md btn-outline-primary mb-3 mr-2">Source code on Github</a>
+              <a href="https://elonautomobiles.netlify.app/" className="btn btn-md btn-outline-primary mb-3 mr-2"
+               rel="noopener noreferrer" target="_blank">
+                Live Demo
+              </a>
+              <a href="https://github.com/cs50victor/elonautomobiles" 
+                className="btn btn-md btn-outline-primary mb-3 mr-2"
+                 rel="noopener noreferrer" target="_blank">
+                Source code on Github
+              </a>
             </div>
           </div>
           <div className="row mb-5 pb-md-4 align-items-center">
             <div className="col-md-5">
-              <img className="img-thumbnail mt-3 mx-auto mb-5"
-                src={Abi} 
-                alt="Abi's Organics Screenshot" loading="lazy" width="700" height="500"></img>
+              <a href="https://abisorganics.com" 
+                 rel="noopener noreferrer" target="_blank">
+                  <img className="img-thumbnail mt-3 mx-auto mb-5" src={Abi} 
+                  alt="Abi's Organics Screenshot" loading="lazy" width="700" height="500"></img> 
+              </a>
             </div>
             <div className="col-md-7 pl-md-5">
-              <h2>Official Themes</h2>
+              <h4>Wordpress E-Commerce Website</h4>
               <p className="lead font-weight-normal">
-                Themes are built on Bootstrap as their own extended frameworks, 
-                rich with new components and plugins, documentation, and powerful build tools.
+                Name : Abi's Organics.
+                <br/>
+                Made with : Wordpress.
               </p>
               <p>
-                Themes are built on Bootstrap as their own extended frameworks, 
-                rich with new components and plugins, documentation, and powerful build tools.
+                A simple CDB E-Commerce wordpress website
               </p>
-              <a href="#" className="btn btn-md btn-outline-primary mb-3 mr-2">Live Demo</a>
-              <a href="#" className="btn btn-md btn-outline-primary mb-3 mr-2">Source code on Github</a>
-            </div>
-          </div>
-          <div className="row mb-5 pb-md-4 align-items-center">
-            <div className="col-md-5">
-              <img className="img-fluid mt-3 mx-auto mb-5"
-                src="https://images.unsplash.com/photo-1588775286394-488d8cf1c8e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="Random" loading="lazy" width="700" height="500"></img>
-            </div>
-            <div className="col-md-7 pl-md-5">
-              <h2>Official Themes</h2>
-              <p className="lead font-weight-normal">
-                Themes are built on Bootstrap as their own extended frameworks, 
-                rich with new components and plugins, documentation, and powerful build tools.
-              </p>
-              <p>
-                Themes are built on Bootstrap as their own extended frameworks, 
-                rich with new components and plugins, documentation, and powerful build tools.
-              </p>
-              <a href="#" className="btn btn-md btn-outline-primary mb-3 mr-2">Live Demo</a>
-              <a href="#" className="btn btn-md btn-outline-primary mb-3 mr-2">Source code on Github</a>
+              <a href="https://abisorganics.com" 
+                className="btn btn-md btn-outline-primary mb-3 mr-2"
+                 rel="noopener noreferrer" target="_blank">
+                   Live Website
+              </a>
             </div>
           </div>
         </div>
