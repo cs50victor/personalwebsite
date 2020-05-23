@@ -7,16 +7,17 @@ import { faEnvelope,faAngleDown } from "@fortawesome/fontawesome-free-solid";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './App.scss';
-
 //----------Cool Animations and Preload-----------------------
-import {TweenLite, Power3} from "gsap";
+import {TweenLite, TimelineLite, Power3} from "gsap";
 import ScrollMagic from "scrollmagic";
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 //--------------Assets----------------------
 import css from "./Assets/techSvg/css-3.svg"
 import myface from "./Assets/face.png";
 import resume from "./Assets/Victor Atasie's Resume.pdf";
 import Abi from "./Assets/abis.png";
 
+ScrollMagicPluginGsap(ScrollMagic, TweenLite, TimelineLite);
 export default function App(){
   const [isIconRotated, setIsIconRotated] = useState(false);
   
@@ -41,9 +42,15 @@ export default function App(){
       if(window.scrollY >= 50.663) header.classList.add("appleBlur"); 
       else header.classList.remove("appleBlur");
     };
-    //!--GSAP, TweenMax----
-    TweenLite.from(memojiText ,2,{opacity: 0,y: 70,ease: Power3.easeOut});
-    introBox.scrollTop = 0;
+    //!--GSAP, TweenLite----
+    let tl1 = new TimelineLite();
+    tl1.to(
+      introBox, 1, {backgroundColor: "black",ease: Power3.easeOut}
+    ).to(
+      memojiText, 1, {opacity: 0, ease: Power3.easeNone}, "-= 10"
+    ).to(
+      aboutMe, 1, {backgroundColor: "black",ease: Power3.easeOut}, "+=2"
+    );
 
     //!---ScrollMagic-----
     let scene1 = new ScrollMagic.Scene({
@@ -52,17 +59,14 @@ export default function App(){
       duration:"120%",
     })
     .setPin(introBox, {pushFollowers: false})
-    .addTo(controller)
-
-    const showTechDiv = TweenLite.to(techDiv, 0, {backgroundColor:"#000000", opacity: 1, ease:Power3.easeOut});
-    const blackAboutMe = TweenLite.to(aboutMe, 10,{backgroundColor:"#000000", opacity: 1, ease:Power3.easeOut});
+    .setTween(tl1)
+    .addTo(controller);
 
     let scene2 = new ScrollMagic.Scene({
       triggerElement: aboutMe,
       triggerHook:"onLeave",
       duration:"120%",
     })
-    .setTween(aboutMe, {backgroundColor: "black"})
     .setPin(aboutMe, {pushFollowers: false})
     .addTo(controller)
 
@@ -77,7 +81,7 @@ export default function App(){
 
   return (
     <React.Fragment>
-      <header className="fixed-top">
+      <header className={isIconRotated ? "appleBlur fixed-top" : "fixed-top"}>
         <div className="container">
           <nav className="navbar d-flex navbar-expand-md justify-content-between">
             <a className="navbar-brand" href="./">Victor Atasie</a>
@@ -141,7 +145,7 @@ export default function App(){
           ref={el => {aboutMe = el}} id="moreMe">
             <div className="centerLittleText">
               <p> 
-                I'm a web designer / developer based in Toronto, Canada.
+                I'm a web designer and developer schooling in Athens, West Virginia.
                 <br/> 
                 I have a passion for web design and love to create for web 
                 and mobile devices. Always up for learning new things.
@@ -149,9 +153,9 @@ export default function App(){
             </div>
         </div>
         <div className="techs pb-5" ref={el => {techDiv = el}}>
-          <div class="container">     
-            <div class="row flex mx-2">
-              <div class="col-12">
+          <div className="container">     
+            <div className="row flex mx-2">
+              <div className="col-12">
                     <div className="box mt-5">
                       <img className="img-thumbnail bg-white" src={css} alt="test"/>
                       <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
@@ -162,7 +166,7 @@ export default function App(){
                     <h5 className="mt-3">Programming Languages</h5> 
                     <small>CSS</small>            
               </div>
-              <div class="col-12">
+              <div className="col-12">
                   <div className="box mt-5">
                     <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
                     <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
@@ -172,7 +176,7 @@ export default function App(){
                   </div>
                   <h5 className="my-3">Libraries and frameworks</h5>
               </div>
-              <div class="col-12">
+              <div className="col-12">
                   <div className="box mt-5">
                     <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
                     <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
@@ -182,7 +186,7 @@ export default function App(){
                   </div>
                   <h5 className="my-3">Tools & Platforms</h5>
               </div>
-              <div class="col-12">
+              <div className="col-12">
                   <div className="box mt-5">
                     <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>
                     <img className="img-fluid" src="//placehold.it/150x180" alt="test"/>

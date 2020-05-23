@@ -90,17 +90,17 @@ body {
   .appear1{
     opacity:1;
   }
-  .appleBlur{
-    background-color: rgba(0, 0, 0, 0.516);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 0.9px solid rgba(248, 248, 255, 0.397); 
-    transition: all 0.25s ease-in;
-  }
   header{
     line-height: inherit;
     position: fixed;
     z-index: 300;
+    &.appleBlur{
+      background-color: rgba(0, 0, 0, 0.516);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 0.9px solid rgba(248, 248, 255, 0.397); 
+      transition: all 0.25s ease-in;
+    }
     .container{
       @include media("<1000px"){
         margin:0;
@@ -149,7 +149,8 @@ body {
     min-height: 100px;
     width: 100%;
     //margin-top: 50.663px;
-    background: linear-gradient( rgb(15,48,42) 5%,  rgb(0, 0, 0) 50%);
+    // brichang green rgb(15,48,42)
+    background: linear-gradient( rgb(0, 0, 0) 5%,  rgb(0, 0, 0) 80%);
     .intro, .moreIntro, .techs {
       @include flex-center;
       position: relative;
@@ -158,19 +159,20 @@ body {
       height: 100vh;
     }
     .intro{ 
+      width: 100vw;
       h1{
         font-weight: 600;
         font-size: 4rem;
+        overflow: hidden;
         cursor: default;
-        &:hover{
-          filter:brightness(100%);
-        }
       }
       img{
         height: 40vmin;
         filter: contrast(120%);
         &:hover{
-          filter: grayscale(100%);
+          filter: saturate(1.5);
+          transform: scale(1.1);
+          transition: all .2s ease-in-out;
         }
       }
       a{

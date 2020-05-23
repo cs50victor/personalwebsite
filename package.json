@@ -19,7 +19,8 @@
     "react-dom": "^16.13.1",
     "react-script-hook": "^1.0.17",
     "react-scripts": "3.4.1",
-    "scrollmagic": "^2.0.7"
+    "scrollmagic": "^2.0.7",
+    "scrollmagic-plugin-gsap": "^1.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

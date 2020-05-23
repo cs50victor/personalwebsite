@@ -11,24 +11,75 @@
       content="The Official Website of Victor Atasie. Aspiring Software and Robotic Engineer.
        You can find all my latest works & projects here."
     />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
     <link rel="preconnect dns-prefetch" href="//db.onlinewebfonts.com">
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Victor Atasie</title>
+    <style type="text/css">
+      .preloader{
+        cursor: none;
+        margin: 0;
+        position: fixed;
+        overflow: hidden;
+        z-index: 2000;
+        top:0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .preloader >img{
+        height: 50vmin;
+        overflow: hidden;
+        image-rendering: auto;
+      }
+      .proloader > h1{
+        overflow: hidden;
+      }
+      .preloader.hidden{
+        animation: fadeOut 1s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes fadeOut {
+        100%{
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+      .hide{
+        height: 0;
+      }
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <noscript>You need to enable JavaScript to use this website.</noscript>
+    <div class="preloader" style="position:fixed; overflow: hidden;">
+      <img src="loading.gif" alt="Loading..."/>
+      <br/>
+      <h1>Entering Victor Universe</h1>
+    </div>
+    <div id="root" class="hide"></div>
     <script>
-      window.addEventListener('load', function() {
-        console.log('All assets are loaded')
+      window.addEventListener("load", function(){
+        window.scrollTo(0, 0);
+        const reactContainer = document.querySelector(".hide")
+        const loader = document.querySelector(".preloader");
+        loader.className += " hidden"; 
+        reactContainer.classList -= " hide";  
+              
       })
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-163431823-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163431823-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
