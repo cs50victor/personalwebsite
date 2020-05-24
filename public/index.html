@@ -69,27 +69,7 @@
         justify-content: center;
         animation: move-eye-skew 4s ease-out infinite;
       }
-      .preloader> .precontain > .eye:after {
-        content: "";
-        box-sizing: border-box;
-        border: 14px solid #117864;
-        background-color: transparent;
-        width: 65px;
-        height: 65px;
-        position: absolute;
-        top: 65px;
-        left: 65px;
-        border-radius: 100%;
-        align-self: center;
-        justify-content: center;
-        box-shadow: 0px 0px 13px 7px rgba(0, 0, 0, 0.7) inset;
-        filter: blur(5px);
-        -webkit-filter: blur(5px);
-        -mozkit-filter: blur(5px);
-        animation: move-eye-skew 4s ease-out infinite;
-        -webkit-animation:move-eye-skew 4s ease-out infinite;
-        -moz-animation: move-eye-skew 4s ease-out infinite;
-      }
+      
       @keyframes close{
         80%{
           background-color: white;
@@ -134,22 +114,22 @@
         font-size: 32px;
       }
       .preloader > .precontain.hidden{
-        -webkit-animation:fadeOut 1.3s;
+        -webkit-animation:fadeOut 1s;
         -webkit-animation-fill-mode:forwards;
-        -moz-animation:fadeOut 1.3ss;
+        -moz-animation:fadeOut 1s;
         -moz-animation-fill-mode:forwards;
-        animation: fadeOut 1.3s;
+        animation: fadeOut 1s;
         animation-fill-mode: forwards;
       }
       .preloader.hidden{
         -webkit-animation:fadeOut 1s;
-        -webkit-animation-delay:2s;
+        -webkit-animation-delay:1s;
         -webkit-animation-fill-mode:forwards;
         -moz-animation:fadeOut 1s;
-        -moz-animation-delay:2s;
+        -moz-animation-delay:1s;
         -moz-animation-fill-mode:forwards;
         animation: fadeOut 1s;
-        animation-delay: 2s;
+        animation-delay: 1s;
         animation-fill-mode: forwards;
       }
       @keyframes fadeOut {
@@ -180,11 +160,10 @@
         const reactContainer = document.querySelector(".hide")
         const loader = document.querySelector(".preloader");
         const innerEye = document.querySelector(".precontain");
-        //innerEye.className += " hidden";
-        //loader.className += " hidden"; 
-        //reactContainer.classList -= " hide";
-        //document.body.scrollTop = 0;
-        //document.documentElement.scrollTop = 0;  
+        innerEye.className += " hidden";
+        loader.className += " hidden"; 
+        reactContainer.classList -= " hide";
+        document.body.scrollTop = 0;  
       })
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->

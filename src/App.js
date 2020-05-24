@@ -269,3 +269,28 @@ export default function App(){
     </React.Fragment>
   );
 }
+
+//for home page css
+/*.preloader> .precontain > .eye:after {
+  content: "";
+  box-sizing: border-box;
+  border: 14px solid #117864;
+  background-color: transparent;
+  width: 65px;
+  height: 65px;
+  position: absolute;
+  z-index:-2;
+  top: 60px;
+  left: 30px;
+  border-radius: 100%;
+  align-self: center;
+  justify-content: center;
+  box-shadow: 0px 0px 13px 7px rgba(0, 0, 0, 0.7) inset;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  -mozkit-filter: blur(5px);
+  animation: move-eye-skew 4s ease-out infinite;
+  -webkit-animation:move-eye-skew 4s ease-out infinite;
+  -moz-animation: move-eye-skew 4s ease-out infinite;
+}
+*/
