@@ -226,8 +226,12 @@ body {
         .row.flex{
           //@include flex-down;
           .col-6{
+            @include flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            background-color: white;
             border-radius: 2px;
-            border: 1.1px solid rgb(134, 134, 134);
+            border: 0.2px solid rgb(134, 134, 134);
             overflow: hidden;
             .box{
               text-align: center;
@@ -235,8 +239,10 @@ body {
               justify-content: center;
               overflow: hidden;
               img{
-                height: calc(32 + (150 - 32) * ((100vw - 300px) / (1600 - 300)));
-                width: calc(32px + (100 - 52) * ((100vw - 300px) / (1600 - 300)));;;
+                border: none;
+                outline: none;
+                height: calc(26px + (150 - 32) * ((100vw - 300px) / (1600 - 300)));
+                width: calc(32px + (100 - 32) * ((100vw - 300px) / (1600 - 300)));
                 padding: 0.45em;
                 @include media("<370px"){
                   padding: 0.25em;
@@ -249,11 +255,12 @@ body {
               }
             }
             h5{
-              color: wheat;
+              color: rgb(0, 0, 0);
               font-size:calc(14px + (20 - 15) * ((100vw - 300px) / (1600 - 300)));
             }
             small{
-              color: rgb(204, 204, 204);
+              text-align: center;
+              color: rgb(46, 46, 46);
               font-weight: 100;
               text-transform: lowercase;
               word-wrap: break-word;

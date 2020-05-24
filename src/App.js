@@ -158,45 +158,45 @@ export default function App(){
           <div className="container">     
             <div className="row flex mt-5">
               <div className="col-6">
+                  <h5 className="mt-3">Programming Languages</h5>
                   <div className="box mt-5">
                     <img className="img-thumbnail" src={html} alt="html"/>
-                    <img className="img-thumbnail m-1" src={css} alt="css"/>
-                    <img className="img-fluid" src={sass} alt="sass"/>
-                    <img className="img-fluid" src={javascript} alt="javascript"/>
-                  </div>     
-                  <h5 className="mt-3">Programming Languages</h5> 
-                  <small className="blockquote-footer">HTML~CSS/SASS~JAVASCRIPT</small>            
+                    <img className="img-thumbnail" src={css} alt="css"/>
+                    <img className="img-thumbnail" src={sass} alt="sass"/>
+                    <img className="img-thumbnail" src={javascript} alt="javascript"/>
+                  </div>  
+                  <small className="mt-5">HTML, CSS/SASS, JAVASCRIPT</small>            
               </div>
               <div className="col-6">
+                  <h5 className="mt-3">Libraries and Frameworks</h5> 
                   <div className="box mt-5">
                     <img className="img-thumbnail" src={jquery} alt="jquery"/>
-                    <img className="img-fluid" src={react} alt="react"/>
+                    <img className="img-thumbnail" src={react} alt="react"/>
                     <img className="img-thumbnail" src={node} alt="node"/>
-                    <img className="img-thumbnail m-1" src={express} alt="express"/>
-                  </div>     
-                  <h5 className="mt-5">Libraries and Frameworks</h5> 
-                  <small className="blockquote-footer">jquery~react~Node.js~Express</small>            
+                    <img className="img-thumbnail" src={express} alt="express"/>
+                  </div> 
+                  <small className="mt-5">jquery,react, Node.js, Express</small>            
               </div>
             </div>
             <div className="row flex">
               <div className="col-6">
+                  <h5 className="my-3">Tools & Platforms</h5>
                   <div className="box mt-5">
                     <img className="img-thumbnail" src={git} alt="git"/>
-                    <img className="img-fluid" src={webpack} alt="webpack"/>
-                    <img className="img-fluid" src={netlify} alt="netlify"/>
+                    <img className="img-thumbnail" src={webpack} alt="webpack"/>
+                    <img className="img-thumbnail" src={netlify} alt="netlify"/>
                     <img className="img-thumbnail" src={wordpress} alt="wordpress"/>
                   </div>
-                  <h5 className="my-3">Tools & Platforms</h5>
-                  <small className="blockquote-footer">Git~Webpack~Netlify~Wordpress</small>            
+                  <small className="mt-5">Git, Webpack, Netlify, Wordpress</small>            
               </div>
               <div className="col-6">
-                  <div className="box mt-5">
-                    <img className="img-fluid" src={figma} alt="figma"/>
-                    <img className="img-fluid" src={bootstrapStudio} alt="bootstrap studio"/>
-                    <img className="img-fluid" src={photoshop} alt="photoshop"/>
-                  </div>
                   <h5 className="my-3">Design</h5>
-                  <small className="blockquote-footer">Figma~Bootstrap Studio~Photoshop</small>            
+                  <div className="box mt-5">
+                    <img className="img-thumbnail" src={figma} alt="figma"/>
+                    <img className="img-thumbnail" src={bootstrapStudio} alt="bootstrap studio"/>
+                    <img className="img-thumbnail" src={photoshop} alt="photoshop"/>
+                  </div>
+                  <small className="mt-5">Figma, Bootstrap Studio, Photoshop</small>            
               </div>
             </div>
           </div>
