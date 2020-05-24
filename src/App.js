@@ -1,18 +1,19 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from "react";
 //-------Icons(font awesome)---------------------
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faLinkedin ,faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {  faLinkedin ,faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope,faAngleDown } from "@fortawesome/fontawesome-free-solid";
 //------Bootstrap and SASS------------------
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import './App.scss';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import "./App.scss";
 //----------Cool Animations and Preload-----------------------
 import {gsap} from "gsap";
 
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 //--------------Assets----------------------
+import logo from "./Assets/new logo.png";
 import myface from "./Assets/face.png";
 import resume from "./Assets/Victor Atasie's Resume.pdf";
 import css from "./Assets/techSvg/css-3.svg";
@@ -80,7 +81,9 @@ export default function App(){
       <header className="fixed-top appleBlur">
         <div className="container">
           <nav className="navbar d-flex navbar-expand-md justify-content-between">
-            <a className="navbar-brand" href="./">Victor Atasie</a>
+            <a className="navbar-brand" href="./">
+              <img src={logo} alt="logo"  className="img-thumbnail" width="40px" height="40px"/>
+            </a>
             <button className="navbar-toggler" type="button" 
                onClick={rotateMenuIcon}
                data-toggle="collapse" data-target="#menu">
@@ -117,7 +120,7 @@ export default function App(){
       <div className="content-wrapper"role="main">
         <div className="introBox" 
          ref={el =>{introBox = el}} >
-          <div className="intro text-center my-0 centerDown">
+          <div className="intro text-center my-0 mt-2 centerDown">
             <div ref={el => {memojiText = el}} className="appear1 mt-1">
               <h1>
                 <small className="lead">Hi, my name is</small>
@@ -150,53 +153,51 @@ export default function App(){
                   <br/>
                   learning new things.
                 <br/>
-                Here are a few technologies, platforms & languages I currently use-
+                Here are a few technologies, platforms & languages I currently use:
               </p>
             </div>
         </div>
         <div className="techs pb-5">
           <div className="container">     
-            <div className="row flex mt-5">
-              <div className="col-6">
-                  <h5 className="mt-3">Programming Languages</h5>
-                  <div className="box mt-5">
-                    <img className="img-thumbnail" src={html} alt="html"/>
-                    <img className="img-thumbnail" src={css} alt="css"/>
-                    <img className="img-thumbnail" src={sass} alt="sass"/>
-                    <img className="img-thumbnail" src={javascript} alt="javascript"/>
-                  </div>  
-                  <small className="mt-5">HTML, CSS/SASS, JAVASCRIPT</small>            
+            <div className="row flex m-1">
+              <div className="col-12 mb-4">
+                <h5 className="mt-3 btn btn-outline-primary">Programming Languages</h5>
+                <div className="box mt-5">
+                  <img className="img-thumbnail" src={html} alt="html" />
+                  <img className="img-thumbnail" src={css} alt="css"/>
+                  <img className="img-thumbnail" src={sass} alt="sass"/>
+                  <img className="img-thumbnail" src={javascript} alt="javascript"/>
+                </div>  
+                <small className="mt-5">HTML, CSS/SASS, JAVASCRIPT</small>            
               </div>
-              <div className="col-6">
-                  <h5 className="mt-3">Libraries and Frameworks</h5> 
-                  <div className="box mt-5">
-                    <img className="img-thumbnail" src={jquery} alt="jquery"/>
-                    <img className="img-thumbnail" src={react} alt="react"/>
-                    <img className="img-thumbnail" src={node} alt="node"/>
-                    <img className="img-thumbnail" src={express} alt="express"/>
-                  </div> 
-                  <small className="mt-5">jquery,react, Node.js, Express</small>            
+              <div className="col-12 mb-4">
+                <h5 className="mt-3 btn btn-outline-primary ">Libraries and Frameworks</h5> 
+                <div className="box mt-5">
+                  <img className="img-thumbnail" src={jquery} alt="jquery"/>
+                  <img className="img-thumbnail" src={react} alt="react"/>
+                  <img className="img-thumbnail" src={node} alt="node"/>
+                  <img className="img-thumbnail" src={express} alt="express"/>
+                </div> 
+                <small className="mt-5">jquery,react, Node.js, Express</small>            
               </div>
-            </div>
-            <div className="row flex">
-              <div className="col-6">
-                  <h5 className="my-3">Tools & Platforms</h5>
-                  <div className="box mt-5">
-                    <img className="img-thumbnail" src={git} alt="git"/>
-                    <img className="img-thumbnail" src={webpack} alt="webpack"/>
-                    <img className="img-thumbnail" src={netlify} alt="netlify"/>
-                    <img className="img-thumbnail" src={wordpress} alt="wordpress"/>
-                  </div>
-                  <small className="mt-5">Git, Webpack, Netlify, Wordpress</small>            
+              <div className="col-12 mb-4">
+                <h5 className="my-3 btn btn-outline-primary">Tools & Platforms</h5>
+                <div className="box mt-5">
+                  <img className="img-thumbnail" src={git} alt="git"/>
+                  <img className="img-thumbnail" src={webpack} alt="webpack"/>
+                  <img className="img-thumbnail" src={netlify} alt="netlify"/>
+                  <img className="img-thumbnail" src={wordpress} alt="wordpress"/>
+                </div>
+                <small className="mt-5">Git, Webpack, Netlify, Wordpress</small>            
               </div>
-              <div className="col-6">
-                  <h5 className="my-3">Design</h5>
-                  <div className="box mt-5">
-                    <img className="img-thumbnail" src={figma} alt="figma"/>
-                    <img className="img-thumbnail" src={bootstrapStudio} alt="bootstrap studio"/>
-                    <img className="img-thumbnail" src={photoshop} alt="photoshop"/>
-                  </div>
-                  <small className="mt-5">Figma, Bootstrap Studio, Photoshop</small>            
+              <div className="col-12 mb-4">
+                <h5 className="my-3 btn btn-outline-primary">Design</h5>
+                <div className="box mt-5">
+                  <img className="img-thumbnail" src={figma} alt="figma"/>
+                  <img className="img-thumbnail" src={bootstrapStudio} alt="bootstrap studio"/>
+                  <img className="img-thumbnail" src={photoshop} alt="photoshop"/>
+                </div>
+                <small className="mt-5">Figma, Bootstrap Studio, Photoshop</small>            
               </div>
             </div>
           </div>
@@ -219,7 +220,7 @@ export default function App(){
             </div>
             <div className="col-md-7 pl-md-5">
               <h4>Bootstrap Landing Page</h4>
-              <p>
+              <p className="lead">
                 Name: Elon Automobiles
                 <br/>
                 Made with : HTML, CSS & Bootstrap.
@@ -229,7 +230,7 @@ export default function App(){
               </p>
               <a href="https://elonautomobiles.netlify.app/" className="btn btn-md btn-outline-primary mb-3 mr-2"
                rel="noopener noreferrer" target="_blank">
-                Live Demo
+                Live Website
               </a>
               <a href="https://github.com/cs50victor/elonautomobiles" 
                 className="btn btn-md btn-outline-primary mb-3 mr-2"
@@ -248,7 +249,7 @@ export default function App(){
             </div>
             <div className="col-md-7 pl-md-5">
               <h4>Wordpress E-Commerce Website</h4>
-              <p className="lead font-weight-normal">
+              <p className="lead">
                 Name : Abi's Organics.
                 <br/>
                 Made with : Wordpress.
