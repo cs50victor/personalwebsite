@@ -1,6 +1,6 @@
 <h1 align="center">
      <br>
-        <a href="https://www.victoruniverse.com"><img src="https://raw.githubusercontent.com/cs50victor/personalwebsite/master/src/images/face.png" alt="my logo" width="170"></a>
+        <a href="https://www.victoruniverse.com"><img src="https://raw.githubusercontent.com/cs50victor/personalwebsite/master/src/Assets/face.png" alt="my logo" width="170"></a>
     <br>
      My website.
     <br>
