@@ -20,6 +20,7 @@ import css from "./Assets/techSvg/css-3.svg";
 import html from "./Assets/techSvg/html5.svg";
 import sass from "./Assets/techSvg/sass.svg";
 import javascript from "./Assets/techSvg/javascript.svg";
+import python from "./Assets/techSvg/python.svg";
 import jquery from "./Assets/techSvg/jquery.svg";
 import react from "./Assets/techSvg/react.svg";
 import node from "./Assets/techSvg/nodejs.svg";
@@ -167,8 +168,9 @@ export default function App(){
                   <img className="img-thumbnail" src={css} alt="css"/>
                   <img className="img-thumbnail" src={sass} alt="sass"/>
                   <img className="img-thumbnail" src={javascript} alt="javascript"/>
+                  <img className="img-thumbnail" src={python} alt="python"/>
                 </div>  
-                <small className="mt-5">HTML, CSS/SASS, JAVASCRIPT</small>            
+                <small className="mt-5">HTML, CSS/SASS, JAVASCRIPT, python</small>            
               </div>
               <div className="col-12 mb-4">
                 <h5 className="mt-3 btn btn-outline-primary ">Libraries and Frameworks</h5> 
