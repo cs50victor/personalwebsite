@@ -214,7 +214,7 @@ export default function App(){
             <div className="col-md-5">
               <a href="https://elonautomobiles.netlify.app"
                 rel="noopener noreferrer" target="_blank">
-                <img className="img-thumbnail mt-3 mx-auto mb-5"
+                <img className="img-fluid rounded mt-3 mx-auto mb-5"
                   src={elon}
                   alt="Elon Automobiles screenshot" loading="lazy" width="700" height="500">
                 </img>
@@ -245,7 +245,7 @@ export default function App(){
             <div className="col-md-5">
               <a href="https://abisorganics.com" 
                  rel="noopener noreferrer" target="_blank">
-                  <img className="img-thumbnail mt-3 mx-auto mb-5" src={Abi} 
+                  <img className="img-fluid rounded mt-3 mx-auto mb-5" src={Abi} 
                   alt="Abi's Organics Screenshot" loading="lazy" width="700" height="500"></img> 
               </a>
             </div>
