@@ -302,11 +302,16 @@ body {
         }
       }
       .row{
+        background-color: rgb(51,51,51);
+        border-radius:10px;
+        align-items:center;
         .col-md-7{
+          width:fit-content;
           p{
             color: whitesmoke;
             font-family: "Colfax Regular";
             font-weight: 200;
+            
           }
         }
         h4{

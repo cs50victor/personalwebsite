@@ -210,17 +210,17 @@ export default function App(){
            <kbd>Projects</kbd>
           </h3>
           <br/>
-          <div className="row mb-5 pb-md-4 align-items-center">
-            <div className="col-md-5">
+          <div className="row mb-5 pb-md-2 align-items-center">
+            <div className="col-lg-5">
               <a href="https://elonautomobiles.netlify.app"
-                rel="noopener noreferrer" target="_blank">
-                <img className="img-fluid rounded mt-3 mx-auto mb-5"
+                rel="noopener noreferrer" target="_blank" >
+                <img className="img-fluid rounded mt-3"
                   src={elon}
-                  alt="Elon Automobiles screenshot" loading="lazy" width="700" height="500">
+                  alt="Elon Automobiles screenshot" loading="lazy" width="900" height="auto">
                 </img>
               </a>
             </div>
-            <div className="col-md-7 pl-md-5">
+            <div className="col-lg-7 pl-sm-5 mt-5 mb-3">
               <h4>Bootstrap Landing Page</h4>
               <p className="lead">
                 Name: Elon Automobiles
@@ -241,15 +241,16 @@ export default function App(){
               </a>
             </div>
           </div>
-          <div className="row mb-5 pb-md-4 align-items-center">
-            <div className="col-md-5">
+          <div className="row mb-5 pb-md-2 align-items-center">
+            <div className="col-lg-5">
               <a href="https://abisorganics.com" 
                  rel="noopener noreferrer" target="_blank">
-                  <img className="img-fluid rounded mt-3 mx-auto mb-5" src={Abi} 
-                  alt="Abi's Organics Screenshot" loading="lazy" width="700" height="500"></img> 
+                  <img className="img-fluid rounded mt-3 "
+                  src={Abi} 
+                  alt="Abi's Organics Screenshot" loading="lazy" width="900" height="500"></img> 
               </a>
             </div>
-            <div className="col-md-7 pl-md-5">
+            <div className="col-lg-7 pl-sm-5 mt-5 mb-3">
               <h4>Wordpress E-Commerce Website</h4>
               <p className="lead">
                 Name : Abi's Organics.
