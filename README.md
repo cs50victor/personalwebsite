@@ -6,8 +6,9 @@
      <br>
      -    for project section copy https://theoutline.com/post/8894/as-told-to-ohio-social-worker-disability
     <br>
-     <br>
+     https://www.victoruniverse.com
+    <br>
         <img src="https://raw.githubusercontent.com/cs50victor/personalwebsite/master/full%20stack.jpg" alt="full stack" width="770">
     <br>
-     https://www.victoruniverse.com
+     
 </h1>
