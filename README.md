@@ -5,12 +5,6 @@
      My website.
      <br>
      -    for project section copy https://theoutline.com/post/8894/as-told-to-ohio-social-worker-disability
-     <br>
-     -    website for internapplication lists
-     <br>
-     -    apple parody website with deep fake / ml    
-     <br>
-     <br>
     <br>
      https://www.victoruniverse.com
 </h1>
