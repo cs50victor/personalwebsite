@@ -4,7 +4,7 @@
     <br>
      My website.
      <br>
-     -    for project section copy https://theoutline.com/post/8894/as-told-to-ohio-social-worker-disability  /////   https://www.apple.com/apple-music/    /// inter font /// https://coolors.co/ //// https://www.grammarly.com/jobs //
+     -    for project section copy https://theoutline.com/post/8894/as-told-to-ohio-social-worker-disability  /////   https://www.apple.com/apple-music/    /// inter font /// https://coolors.co/ //// https://www.grammarly.com/jobs // https://www.apple.com/newsroom/
     <br>
           -CSS AND FLEXBOX ///      
      https://flexboxfroggy.com/   //// 
