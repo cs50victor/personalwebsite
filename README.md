@@ -21,6 +21,7 @@
     <br>
      https://www.victoruniverse.com
     <br>
+    https://www.bukola.dev/resume  ////  https://drive.google.com/file/d/1RK31EZ90tSt_Y3f4-ipeyF-bIP7V8bMa/view
     <br>
         <img src="https://raw.githubusercontent.com/cs50victor/personalwebsite/master/full%20stack.jpg" alt="full stack" width="770">
     <br>
