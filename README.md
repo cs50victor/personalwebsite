@@ -26,6 +26,8 @@
         <img src="https://raw.githubusercontent.com/cs50victor/personalwebsite/master/full%20stack.jpg" alt="full stack" width="770">
     <br>
     https://www.apple.com/privacy/
+    https://mediaqueri.es/
+    <br>
      
 </h1>
 <p>
