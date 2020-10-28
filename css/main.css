@@ -1,0 +1,534 @@
+/* “Good design is as little design as possible.”
+Dieter Rams 
+*/
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:600,800&display=swap');
+
+*,
+*::before,
+*::after {
+	-webkit-font-smoothing: antialiased;
+	word-break: break-word;
+	word-wrap: break-word;
+} 
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0; 
+   left: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+}
+/*---Scroll bar css*/
+
+::-webkit-scrollbar {
+    width: 5px;
+} 
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(0, 0, 0); 
+    border-radius: 100px;
+} 
+::-webkit-scrollbar-thumb {
+    background: rgb(230, 230, 230); 
+    border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 211, 211, 0.911); 
+}
+/*--body--*/
+body{
+    margin: 0;
+    background-color: black;
+    position: relative;
+    font-size: 1rem;
+    font-weight: lighter;
+    font-family: "Segoe UI";
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+main{
+    position: relative;
+    width: 100%;
+    top: 0;
+    background-color: rgb(233, 222, 210);
+    cursor: url('https://img.icons8.com/ultraviolet/34/000000/cursor.png'), auto;
+}
+
+/* home css */
+.slide .row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120vh;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+.parallax{
+    background-color: #000000;
+}
+.recent-text{
+    font-size: 2em;
+    color: rgb(255, 199, 147);
+    text-shadow: -2px 0px 3px #000000;
+}
+
+.slidein{
+    background-image: linear-gradient(to top, #09203f 0%, #9292B1 100%);   
+}
+.slidein2{
+    background-image: linear-gradient(to bottom, #09203f 0%, #000000a4 100%);   
+    font-family: 'Work Sans', sans-serif;
+}
+
+.slidein2 .row{
+    justify-content: space-around;
+    align-self: center;
+}
+.column-header{
+    display: flex;
+    padding: 0 10px;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+}
+.column{
+    float: left;
+    width: 50%;
+    padding: 0 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    padding: 16px;
+    text-align: center;
+    overflow: hidden;
+}
+.card-header{
+    text-align: center;
+    padding: 16px;
+    align-content: center;
+}
+.img-head{
+    max-width:350px; 
+    max-height: 350px;
+}
+.intro-font{
+    color: rgb(255, 240, 203);   
+}
+.intro-font p{
+    font-family: "Work Sans",serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    text-shadow: -1.5px 0px 1.5px #000000; 
+}
+
+.intro-font h1{
+    font-weight: 800;
+    font-size: 2.6rem;
+    line-height: 1.1;
+    text-shadow: -2px 0px 1.5px #000000;
+}
+.intro-font a, .card a{
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 7px;
+    transition: 0.1s;
+    color: navy;
+}
+.card a{
+    background-color: black;
+    color: white;
+}
+
+.intro-font a:hover , .card a:hover{
+    background-color: white;
+    color: rgb(0, 0, 0);
+    box-shadow:0 5px 50px 0 #15f4ee inset, 0 5px 50px 0 #15f4ee,
+               0 5px 50px 0 #15f4ee inset, 0 5px 50px 0 #15f4ee;
+    text-shadow: 0 0 5px #15f4ee, 0 0 5px #15f4ee;
+}
+
+/* */
+.developer-table{
+    background-color: white;
+    color: black;
+    box-shadow: inset 0 0 5px rgb(0, 0, 0);
+}
+.developer-table p{
+    font-size: 1em;
+    font-weight: normal;
+    padding: 3.5px;
+    justify-content: space-evenly;
+}
+.developer-table p img{
+    max-width: 40px;
+    max-height: 40px;
+}
+.purple{
+    color: #7510F7;
+    font-weight: 700 !important;
+}
+
+
+
+.flex-container {
+    background-color: rgb(0, 0, 0);
+    color:white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.txt-shadow{
+    text-shadow: -2px 0px 3px #000000;
+}
+
+.art-container {
+    display: flex;
+    background-image: url(https://media.giphy.com/media/OKEYg2ISpaedy/giphy.gif);
+    background-size: 100% 100vh;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 4px #000000;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    height: 100vh;
+    top: 70px;
+}
+.contact-container {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+}
+
+.coming-soon{
+    padding: 10px;
+    text-align: center;
+    align-content: center;
+
+}
+.caution-icon{
+    width: 60vw;
+    max-width: 348px;
+    max-height: 337px;
+}
+.caution-font{
+    font-size: 5.5vw;
+    color: white;
+    size: 10em;
+}
+
+.contact-me{
+    padding: 10px;
+    text-align: center;
+    align-content: center;
+    margin-top: 50px;
+
+}
+.contact-icon{
+    width: 40vw;
+    max-width: 348px;
+    max-height: 337px;
+}
+.contact-font{
+    font-size: 3vw;
+    color: white;
+    size: 10em;
+}
+.contact-font-two{
+    font-size: 1.2vw;
+    color: white;
+}
+.contact-font-two a{
+    color: rgb(255, 255, 255);
+    font-weight: lighter;
+    padding: 2px 4px 4px 4px;
+    text-decoration: none;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.contact-font-two a:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+}
+          /*Header css*/
+header {
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 0px;
+    position: absolute;
+    z-index: 10;
+}
+
+            /* Start of left-aligned navigation bar*/
+.nav__links {
+    list-style:none;
+    display:flex;
+    
+}
+
+.nav__links li {
+    display: inline-block;
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgba(223, 223, 223, 0.774);
+    text-decoration:none;
+}
+
+.nav__links li a{
+    transition: all 0.3s ease 0s;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    text-decoration:none;
+}
+
+.nav__links li a:hover {
+    color: rgba(223, 223, 223, 0.774);
+    text-decoration: underline white;
+}
+/* End of navigation bar css */
+
+/* center aligned LOGO CSS */
+
+.logo-wrap{
+    text-align: center;
+    align-content: center;
+    max-width: 100%;
+    transition: 0.3s;
+}
+
+.logo{
+    cursor: pointer;
+    width: 123.5px;
+    max-height: 66.5px;
+    transition: all 0.3s ease 0s;
+}
+/* end of Logo css*/
+
+/* Header Social bar css*/
+.nav_social{
+    list-style:none;
+    justify-content: space-between;
+    width: 137px;
+    text-align: end;
+    align-items: center;    
+}
+
+.nav_links2{
+    list-style:none;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding-right:11.5px;
+}
+
+/*End of social bar css*/
+
+           /*Menu Icon*/
+.navbar_toggle{
+    display: none;
+}
+
+            /* Overlay Navigation*/
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    margin: 0;
+    background-color: rgb(0,0,0);
+    overflow-x: hidden;
+    transition: 0.4s;
+    text-align: center;
+}
+  
+.overlay-content {
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    margin: 0;
+}
+
+.content-two{
+    padding: 5%;
+    position: absolute;
+    width: 100%;
+    bottom:0;
+    margin:0;
+    min-height: 80px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    
+}
+
+.content-two a {
+    padding: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    align-items: center;
+    margin: 0;
+   
+}
+
+.overlay-content a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 26px;
+    color: rgb(175, 175, 175);
+    display: block;
+    transition: 0.25s;
+    text-align: center;
+}
+  
+.overlay a:hover, .overlay a:focus {
+    color: white;
+}
+  
+.overlay .closebtn {
+    text-align: end;
+    font-size: 50px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0;
+    float: right;
+    padding-right: 3.5%;
+    padding-top: 2%;
+}
+          /*END of overlay css*/
+
+               /*FOOTER CSS*/
+footer{
+    background-color: rgb(0, 0, 0);
+    color: rgb(179, 179, 179);
+    font-family: 'Work Sans', sans-serif;
+    bottom: 0;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    padding: 30px;
+}
+
+                /* Contact Form CSS*/
+.form{
+    box-shadow: -5px -5px 10px rgba(255,255,255,0.05), 5px 5px 15px rgba(0, 0, 0, 0.5);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.form input, .form textarea {
+    border-radius: 30px;
+}
+div.elem-group {
+    margin: 50px;
+    }
+    
+label {
+    display: block;
+    padding-bottom: 4px;
+    font-size: 1.25em;
+    color: white;
+}
+    
+input, select, textarea {
+    border-radius: 2px;
+    background-color: rgba(68, 68, 68, 0.288);
+    color: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1em;
+    width: 65vw;
+    padding: 8px;
+    }
+    
+textarea {
+    height: 250px;
+    }
+    
+button {
+    height: 50px;
+    background: white;
+    color: black;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 1.2em;
+    border-radius: 19px;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 115px;
+}
+    
+button:hover {
+    background-color: rgb(245, 193, 50);
+}
+
+            /* Mobile View*/
+@media screen and (max-width: 768px){
+    .nav__links,
+    .nav_social {
+        display: none;
+    }
+    .navbar_toggle{
+        display: block;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.945);
+        float:right;
+    }
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
+@media screen and (max-width: 450px){
+    .img-head{
+        max-height: 35vh;
+        max-width: 70vw;
+    }
+}
+@media screen and (max-width: 175px){
+    .logo{
+        width: 40vw;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .overlay, .overlay-content {overflow-y: auto;}
+    .overlay a , .overlay-content a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 10px;
+        right: 35px;
+    }
+}
