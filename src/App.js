@@ -124,7 +124,7 @@ export default function App(){
           <div className="intro text-center my-0 mt-2 centerDown">
             <div ref={el => {memojiText = el}} className="appear1 mt-1">
               <h1>
-                <small className="lead">Hi, my name is</small>
+                <small className="lead">Hoi, my name is</small>
                   <br/>
                  <strong>Victor Atasie</strong>
               </h1>
