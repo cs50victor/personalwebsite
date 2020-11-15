@@ -1,11 +1,9 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
 
 //----------------Components----------------
-import Layout from "../shared/Layout/Layout.jsx";
 import LongCard from "../shared/LongCard/LongCard.jsx";
 import ProjectTile from "../shared/ProjectTile/ProjectTile.jsx";
-import { FlickingEvent, SelectEvent, ChangeEvent, NeedPanelEvent } from "@egjs/flicking";
 import Flicking from "@egjs/react-flicking";
 //-----------------SCSS---------------------
 import "./home.scss";
