@@ -75,6 +75,7 @@ section.introBox{
           }
         }
         p{
+          font-weight: 600;
           font-size: 1.5rem;
           @include media("<993px"){
             font-size: 1.2rem;
@@ -112,8 +113,11 @@ section.introBox{
       width: 100%;
       max-width: 10rem;
       margin: 1rem auto;
-      transition: all 0.35s ease;
       letter-spacing: 1.5px;
+      font-family: "Anton";
+      text-transform: uppercase;
+      transition: all 0.35s ease;
+      
 
       &:hover{
         text-decoration: none;
