@@ -1,0 +1,96 @@
+@import "../../Assets/scss/variables.scss";
+@import "../../Assets/scss/breakpoints.scss";
+
+header{
+    line-height: inherit;
+    position: fixed;
+    z-index: 300;
+    width: 100%;
+    &.appleBlur{
+      background-color: $def-background;
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+      transition: all 0.25s ease-in;
+    }
+    .container{
+      @include media("<1000px"){
+        margin:0;
+        max-width: 100%;
+      }
+    }
+    nav{
+      text-align: center;
+      a{
+        color: white;
+      }
+      a.navbar-brand{
+        letter-spacing: 0.025em;
+        &:hover {
+          color:rgb(255, 255, 255);
+          transform: scale(1.05);
+          -webkit-transform:scale(1.05);
+          -moz-transform:scale(1.05);
+        }
+      }
+      .nav-item a{
+        color: white !important;
+        font-size: 1.3333333333em;
+        line-height: 0.75em;
+        outline: none;
+        &:hover{
+          outline: none;
+          color:wheat !important;
+          filter: saturate(200%);
+          -webkit-filter: saturate(200%);
+        }
+      }
+      .menuRotate{
+        -moz-transform: scale(-1, -1);
+        -o-transform: scale(-1, -1);
+        -webkit-transform: scale(-1, -1);
+        transform: scale(-1, -1);
+        transition: transform 0.5s ease;
+      }
+      .menuOriginal{
+        -moz-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        -webkit-transform: scale(1, 1);
+        transform: scale(1,1);
+        transition: transform 0.5s ease;
+      }
+      .disappear{
+        @include media("<768px"){
+          display: none;
+        }
+      }
+    }
+}
+
+
+footer{
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3{
+      text-decoration: underline;
+      text-decoration-style: wavy;
+    }
+    a{
+      border: 7px solid whitesmoke;
+      padding: 1rem;
+      color: wheat;
+      text-decoration: none;
+      text-align: center;
+      vertical-align: center;
+      transition: all 0.35s ease;
+      margin: 1.5rem 0 15rem;
+    }
+    a:hover{
+      border: 1px solid whitesmoke;
+      color: rgb(248, 197, 101);
+    }
+  }
+}
