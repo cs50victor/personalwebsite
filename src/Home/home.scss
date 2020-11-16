@@ -41,7 +41,7 @@ section.introBox{
         @include media("<755px"){
           width: 40%;
         }
-        @include media("<635px"){
+        @include media("<640px"){
           width: 35%;
         }
         @include media("<592px"){
