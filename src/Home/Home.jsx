@@ -104,76 +104,66 @@ export default function Home(){
                 <h2>SELECTED PROJECTS</h2>
           </Container>
           <div className="tiles_container">
-          <ProjectTile heading="Video Downloader"
-                         type="Website" 
-                         image={video} 
-                         name="Easier Save" 
-                         tools="Heroku, Gatsbyjs/React, Express, Bootstrap, Rest API and Sass " 
-                         modalGIF={elon}
-                         description="A social media video downloader and progressive web app. " 
-                         link="https://easiersave.com" 
-                         github="https://github.com/cs50victor/easiersave"
+            <ProjectTile heading="Video Downloader"
+                        type="Website" 
+                        image={video} 
+                        name="Easier Save" 
+                        tools="Heroku, Gatsbyjs/React, Express, Bootstrap, Rest API and Sass " 
+                        modalGIF={elon}
+                        description="A social media video downloader and progressive web app. " 
+                        link="https://easiersave.com" 
+                        github="https://github.com/cs50victor/easiersave"
             />
             <ProjectTile heading="Breakfast Restaurant"
-                         type="Website" 
-                         image={tudorsIcon} 
-                         name="Tudor's Restaurant" 
-                         tools="HTML, CSS, Javascript, MYSQL & PHP." 
-                         modalGIF={elon}
-                         description="Website redesign for Tudor's Biscuit World http://tudorsbiscuitworld.com/" 
-                         link="https://tudors.netlify.app/" 
-                         github="https://github.com/CSWebDev2020/tudors"
+                        type="Website" 
+                        image={tudorsIcon} 
+                        name="Tudor's Restaurant" 
+                        tools="HTML, CSS, Javascript, MYSQL & PHP." 
+                        modalGIF={elon}
+                        description="Website redesign for Tudor's Biscuit World http://tudorsbiscuitworld.com/" 
+                        link="https://tudors.netlify.app/" 
+                        github="https://github.com/CSWebDev2020/tudors"
             />
             <ProjectTile heading="Virtual Machine"
-                         type="Source Code" 
-                         image={vm} 
-                         name="A Simple Virtual Machine" 
-                         tools="C, Assembly Language, HDL." 
-                         modalGIF={elon}
-                         description="Built a full-scale general-purpose computer system (hardware + software) from the ground up." 
-                         link="https://github.com/cs50victor/nandToTetris" 
-                         github="https://github.com/cs50victor/nandToTetris"
+                        type="Source Code" 
+                        image={vm} 
+                        name="A Simple Virtual Machine" 
+                        tools="C, Assembly Language, HDL." 
+                        modalGIF={elon}
+                        description="Built a full-scale general-purpose computer system (hardware + software) from the ground up." 
+                        link="https://github.com/cs50victor/nandToTetris" 
+                        github="https://github.com/cs50victor/nandToTetris"
             />
             <ProjectTile heading="Quiz App"
-                         type="Website" 
-                         image={quiz} 
-                         name="Simple Quiz App" 
-                         tools="HTML, SASS, React." 
-                         modalGIF={elon}
-                         description="A simple quiz web app using React and a simple API" 
-                         link="simpledemoquiz.netlify.app" 
-                         github="https://github.com/cs50victor/quizApp"
+                        type="Website" 
+                        image={quiz} 
+                        name="Simple Quiz App" 
+                        tools="HTML, SASS, React." 
+                        modalGIF={elon}
+                        description="A simple quiz web app using React and a simple API" 
+                        link="simpledemoquiz.netlify.app" 
+                        github="https://github.com/cs50victor/quizApp"
             />
             <ProjectTile heading="Dad Jokes"
-                         type="Website" 
-                         image={dad} 
-                         name="Dad Jokes 15" 
-                         tools="Gatsbyjs/React, Bootstrap, Express, GraphQL, Heroku and Sass." 
-                         modalGIF={elon}
-                         description="A simple website that fetches Dad jokes from an API every 15seconds using graphql. " 
-                         link="https://dad-jokes-15.netlify.app/" 
-                         github="https://github.com/cs50victor/dadjokes"
+                        type="Website" 
+                        image={dad} 
+                        name="Dad Jokes 15" 
+                        tools="Gatsbyjs/React, Bootstrap, Express, GraphQL, Heroku and Sass." 
+                        modalGIF={elon}
+                        description="A simple website that fetches Dad jokes from an API every 15seconds using graphql. " 
+                        link="https://dad-jokes-15.netlify.app/" 
+                        github="https://github.com/cs50victor/dadjokes"
             />
             <ProjectTile heading="TicTacToe AI"
-                         type="Website" 
-                         image={tictactoe} 
-                         name="Unbeatable Tic Tac Toe AI" 
-                         tools="HTML, SASS, Javascript & Bootstrap." 
-                         modalGIF={elon}
-                         description="An unbeatable Tic Tac Toe bot / competitor using the MiniMax Algorithm." 
-                         link="https://ai-tictactoe.netlify.app/" 
-                         github="https://github.com/cs50victor/AI-TicTacToe"
-            />
-            <ProjectTile heading="Bootstrap Landing Page"
-                         type="Website" 
-                         image={elon} 
-                         name="Elon Automobiles" 
-                         tools="HTML, CSS & Bootstrap." 
-                         modalGIF={elon}
-                         description="A simple landing page for a fictional car company." 
-                         link="https://elonautomobiles.netlify.app/" 
-                         github="https://github.com/cs50victor/elonautomobiles"
-            />
+                        type="Website" 
+                        image={tictactoe} 
+                        name="Unbeatable Tic Tac Toe AI" 
+                        tools="HTML, SASS, Javascript & Bootstrap." 
+                        modalGIF={elon}
+                        description="An unbeatable Tic Tac Toe bot / competitor using the MiniMax Algorithm." 
+                        link="https://ai-tictactoe.netlify.app/" 
+                        github="https://github.com/cs50victor/AI-TicTacToe"
+            />           
           </div>
         </section>
       </main>
