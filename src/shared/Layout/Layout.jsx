@@ -11,6 +11,7 @@ import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import name from "../../Assets/name.svg";
 
 gsap.registerPlugin(Draggable, ScrollToPlugin, ScrollTrigger);
 
@@ -71,8 +72,8 @@ const Layout = ({ children}) => {
     <Fragment>
       <Header>
         <Navbar>
-          <a href="./" tw="font-bold uppercase">
-            VICTOR Atasie
+          <a href="./" tw="font-bold mx-auto">
+            <img src={name} alt="..." width="160px" tw="mx-auto"/>
           </a>
         </Navbar>
         <hr tw="border border-black w-11/12 mx-auto" />
