@@ -29,12 +29,3 @@
 ## Design Tools
 - <img src="./forMarkDown/figma.svg" alt="figma" width="30"/>
 - <img src="./forMarkDown/photoshop.svg" alt="photoshop" width="40"/>
-
-### Plan
-- Header (position fixed)
-  - Home
-  - About
-  - Projects
-  - Contact (back to start)
-- Footer (fixed)
-  - Scollspy
