@@ -1,4 +1,4 @@
-import React, { useRef,useEffect, Fragment } from "react";
+import React, { useRef, useState, useEffect, Fragment } from "react";
 import "twin.macro";
 import {
   Header,
@@ -18,6 +18,7 @@ gsap.registerPlugin(Draggable, ScrollToPlugin, ScrollTrigger);
 const Layout = ({ children}) => {
   const horizontalWidthRef = useRef();
   const dragBoundRef = useRef();
+  const [smallDevice, setSmallDevice] = useState(false);
 
   //resize hook
   useEffect(() => {
@@ -47,13 +48,18 @@ const Layout = ({ children}) => {
   }, []);
 
   useEffect(() => {
-    //Draggable.create(horizontalWidthRef.current, {
-    //  bounds: dragBoundRef.current,
-    //  //allowNativeTouchScrolling:false,
-    //  type: "x",
-    //  cursor: "default",
-    //  throwProps: true,
-    // });
+    console.log(document.documentElement.clientWidth);
+    if (document.documentElement.clientWidth < 1000){
+        setSmallDevice(true)
+        Draggable.create(horizontalWidthRef.current, {
+          bounds: dragBoundRef.current,
+          allowNativeTouchScrolling:false,
+          type: "x",
+          cursor: "default",
+          throwProps: true,
+        });
+    }
+    
 
     const scroller = () => {
       let pixels =

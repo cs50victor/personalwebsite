@@ -3,7 +3,6 @@ import tw, {styled} from "twin.macro";
 const Section= styled.section`
 
     margin-top: 8.33333vh;
-    min-width: 80vh;
     color: #201d1e;
     ${tw`
     relative
