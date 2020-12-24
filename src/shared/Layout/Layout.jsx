@@ -1,84 +1,90 @@
-import React, {useState} from "react";
-import {Container, Navbar} from "react-bootstrap";
+import React, { useRef,useEffect, Fragment } from "react";
+import "twin.macro";
+import {
+  Header,
+  Navbar,
+  DragBoundary,
+  Horizontal
+} from "../components";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faLinkedin ,faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope,faAngleDown } from "@fortawesome/fontawesome-free-solid";
+import { gsap } from "gsap";
+import { Draggable } from "gsap/Draggable";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import "./layout.scss";
+gsap.registerPlugin(Draggable, ScrollToPlugin, ScrollTrigger);
 
-import logo from "../../Assets/images/new logo.png";
+const Layout = ({ children}) => {
+  const horizontalWidthRef = useRef();
+  const dragBoundRef = useRef();
 
-const Layout =({children})=>{
-    const [isIconRotated, setIsIconRotated] = useState(false);
+  //resize hook
+  useEffect(() => {
+    
+    const handleResize =()=>{
+      if (horizontalWidthRef.current && dragBoundRef.current) {
+        let w = horizontalWidthRef.current.clientWidth;
+        //setting left value for dragBound and horizontal reverse scroll
+        horizontalWidthRef.current.style.left = w + "px";
+        dragBoundRef.current.style.left = (w * -1).toString() + "px";
 
-    const rotateMenuIcon =()=>{
-        setIsIconRotated(isIconRotated => !isIconRotated)
+        //width of dragBoundary (main) and height of body
+        dragBoundRef.current.style.width = document.body.style.height =
+          (w).toString() + "px";
+      }
     }
+    const timer = setTimeout(() => {
+      handleResize();
+    }, 200);
 
-    return(
-        <React.Fragment>
-            <header className="appleBlur">
-                <Container>
-                    <Navbar className="d-flex navbar-expand-md justify-content-between" expand="lg">
-                        <a className="navbar-brand" href="./">
-                            <img src={logo} alt="logo"  className="img-thumbnail" width="40px" height="40px"/>
-                        </a>
-                        <button className="navbar-toggler" type="button" 
-                            onClick={rotateMenuIcon}
-                            data-toggle="collapse" data-target="#menu">
-                            <FontAwesomeIcon icon={faAngleDown} 
-                                color={"white"} size={"lg"} className={isIconRotated ? "menuRotate" : "menuOriginal"} />
-                        </button>
-                        <div className="collapse navbar-collapse justify-content-end" id="menu">
-                            <ul className="navbar-nav align-items-center">
-                                <li className="nav-item">
-                                    <a href="#projects" className="nav-link">projects</a>
-                                </li>
-                                <span className="disappear">|</span>
-                                <li className="nav-item">
-                                    <a href="https://www.linkedin.com/in/victoratasie1/" target="_blank"
-                                        rel="noopener noreferrer" className="nav-link">
-                                        <FontAwesomeIcon icon={faLinkedin} size={"lg"}/>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="https://github.com/cs50victor" target="_blank"
-                                        rel="noopener noreferrer" className="nav-link">
-                                        <FontAwesomeIcon icon={faGithub} size={"lg"}/>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="mailto:atasiev10@mycu.concord.edu" target="_top" className="nav-link">
-                                        <FontAwesomeIcon icon={faEnvelope} size={"lg"} />                    
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </Navbar>
-                </Container>
-            </header>
-            {children}
-            <footer className="my-3">
-                <Container>
-                    <h2>Let's Talk</h2>
-                    <br/>
-                    <a href="mailto:atasiev10@mycu.concord.edu" target="_top" className="footer-contact">
-                        <FontAwesomeIcon icon={["fas", "at"]} size="3x" />
-                        <br/>
-                        atasiev10@mycu.concord.edu                    
-                    </a>
-                    
-                    <br/>
-                    <br/>
-                    <br/>
+    window.addEventListener("resize", handleResize);
 
-                    © {new Date().getFullYear()} | Victor Atasie.
-                    <br/>
-                </Container>
-            </footer>
-        </React.Fragment>
-    )
-}
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  useEffect(() => {
+    //Draggable.create(horizontalWidthRef.current, {
+    //  bounds: dragBoundRef.current,
+    //  //allowNativeTouchScrolling:false,
+    //  type: "x",
+    //  cursor: "default",
+    //  throwProps: true,
+    // });
+
+    const scroller = () => {
+      let pixels =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      gsap.to(horizontalWidthRef.current, 1, { x: -1.09 * pixels });
+    };
+
+    document.addEventListener("scroll", scroller);
+
+    return () => {
+      document.removeEventListener("scroll", scroller);
+    };
+  }, []);
+
+  return (
+    <Fragment>
+      <Header>
+        <Navbar>
+          <a href="./" tw="font-bold uppercase">
+            VICTOR Atasie
+          </a>
+        </Navbar>
+        <hr tw="border border-black w-11/12 mx-auto" />
+      </Header>
+      <DragBoundary ref={dragBoundRef}>
+        <Horizontal 
+          ref={horizontalWidthRef}>
+          {children}
+        </Horizontal>
+      </DragBoundary>
+    </Fragment>
+  );
+};
 
 export default Layout;

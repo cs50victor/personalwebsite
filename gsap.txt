@@ -1,0 +1,77 @@
+---------------------------------------------------------
+${props => props.theme.bodyWidth}
+
+:root {
+  --numberOfSection: 12;
+  --sectionWidth: 95vw;
+  --sectionHeight: 100vh;
+}
+
+body{
+  overflow-y:scroll;
+  height: calc(var(--sectionWidth) * var(--numberOfSection) * 2 );
+}
+
+main{
+  position:fixed;
+  width: calc(var(--sectionWidth) * var(--numberOfSection) * 2 );
+  height:var(--sectionHeight);
+  background-color:black;
+}
+#horizontal{
+  display: flex;
+  flex-wrap: nowrap;
+}
+section{
+  position: relative;
+  width: 95vw;
+  height: 5vw;
+  border-right: 2px solid red;
+  border-radius: 20px;
+  background-color: green;
+  text-align: center;
+  color: black;
+}
+----------------------------------------------------------
+
+Draggable.create("#horizontal", {
+    allowNativeTouchScrolling:true,
+    bounds:"main",
+		type:"x"
+		}
+)
+var scrollSpeed = 0.6; 
+$(document).on("scroll", function (){
+  const pixels = $(document).scrollTop();
+  TweenMax.to('#horizontal',1,{x:-scrollSpeed  * pixels})
+  //  '0.5' = half speed of user scroll
+})
+
+let handler = document.querySelector("#handler"),barLength, maxScroll, trigger, draggable;
+
+// this ScrollTrigger will use the window/<body> by default, calling onRefresh when the page resizes, and onUpdate whenever any scroll happens. 
+trigger = ScrollTrigger.create({
+  onRefresh: onResize,
+  onUpdate: updateHandler
+});
+
+draggable = Draggable.create(handler, {
+  type: "x",
+  bounds: ".bar",
+  onDrag: function() {
+    trigger.scroll(this.x / barLength * maxScroll); // when dragging, scroll the page to the corresponding ratio
+  }
+})[0];
+
+function onResize() {
+  if (trigger) {
+    maxScroll = ScrollTrigger.maxScroll(window); // record the maximum scroll value for the page
+    barLength = document.querySelector(".bar").offsetWidth - handler.offsetWidth; 
+    updateHandler();
+  }
+}
+
+function updateHandler() {
+  // move the handler to the corresponding ratio according to the page's scroll position.
+  gsap.set(handler, {x: barLength * trigger.scroll() / maxScroll});
+}
