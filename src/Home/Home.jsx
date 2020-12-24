@@ -275,7 +275,7 @@ const Home = () => {
       </Layout>
       <Footer>
           <div >
-            SCROLL DOWN TO NAVIGATE
+            SCROLL TO NAVIGATE
             <ArrowDownShort size="25px" tw="animate-bounce"/>
           </div>
         </Footer>
