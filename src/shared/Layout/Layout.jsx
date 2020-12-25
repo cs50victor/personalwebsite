@@ -23,7 +23,7 @@ const Layout = ({ children}) => {
     
     const handleResize =()=>{
       if (horizontalWidthRef.current && dragBoundRef.current) {
-        let w = horizontalWidthRef.current.offsetWidth;
+        let w = horizontalWidthRef.current.clientWidth;
         //setting left value for dragBound and horizontal reverse scroll
         horizontalWidthRef.current.style.left = w + "px";
         dragBoundRef.current.style.left = (w * -1).toString() + "px";
