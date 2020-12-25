@@ -23,7 +23,7 @@ const Layout = ({ children}) => {
     
     const handleResize =()=>{
       if (horizontalWidthRef.current && dragBoundRef.current) {
-        let w = horizontalWidthRef.current.clientWidth;
+        let w = horizontalWidthRef.current.offsetWidth;
         //setting left value for dragBound and horizontal reverse scroll
         horizontalWidthRef.current.style.left = w + "px";
         dragBoundRef.current.style.left = (w * -1).toString() + "px";
@@ -71,7 +71,7 @@ const Layout = ({ children}) => {
     const scroller = () => {
       let pixels =
         document.body.scrollTop || document.documentElement.scrollTop;
-      gsap.to(horizontalWidthRef.current, 1, { x: -1.09 * pixels });
+      gsap.to(horizontalWidthRef.current, 1, { x: -1.1 * pixels });
     };
 
     document.addEventListener("scroll", scroller);
