@@ -71,7 +71,7 @@ const Layout = ({ children}) => {
     const scroller = () => {
       let pixels =
         document.body.scrollTop || document.documentElement.scrollTop;
-      gsap.to(horizontalWidthRef.current, 1, { x: -1.1 * pixels });
+      gsap.to(horizontalWidthRef.current, 1, { x: -1.5 * pixels });
     };
 
     document.addEventListener("scroll", scroller);
