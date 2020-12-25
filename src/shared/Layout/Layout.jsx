@@ -36,6 +36,15 @@ const Layout = ({ children}) => {
     const timer = setTimeout(() => {
       handleResize();
     }, 3300);
+    const timer1 = setTimeout(() => {
+      handleResize();
+    }, 4300);
+    const timer2 = setTimeout(() => {
+      handleResize();
+    }, 5300);
+    const timer3 = setTimeout(() => {
+      handleResize();
+    }, 6300);
 
     window.addEventListener("resize", handleResize);
 
