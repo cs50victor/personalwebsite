@@ -35,7 +35,7 @@ const Layout = ({ children}) => {
     }
     const timer = setTimeout(() => {
       handleResize();
-    }, 200);
+    }, 3300);
 
     window.addEventListener("resize", handleResize);
 

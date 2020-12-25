@@ -14,6 +14,7 @@ const Section= styled.section`
     items-center
     px-5
     h-5/6
+    overflow-hidden
     `}
 `;
 
