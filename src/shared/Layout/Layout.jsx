@@ -38,19 +38,22 @@ const Layout = ({ children}) => {
     }, 3300);
     const timer1 = setTimeout(() => {
       handleResize();
-    }, 4300);
+    }, 5300);
     const timer2 = setTimeout(() => {
       handleResize();
-    }, 5300);
+    }, 7300);
     const timer3 = setTimeout(() => {
       handleResize();
-    }, 6300);
+    }, 10000);
 
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
       clearTimeout(timer);
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
     };
   }, []);
 

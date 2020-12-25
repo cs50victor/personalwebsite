@@ -46,20 +46,22 @@ const Description = styled.p`
 
 const Home = () => {
 
-  const [smallDevice, setSmallDevice] = useState(false);
-   useEffect(()=>{
-     const handleFooter =()=>{
-       if(document.documentElement.clientWidth < 990){ 
-        setSmallDevice(true);
+  const [bigDevice, setBigDevice] = useState(true);
+
+
+  useEffect(()=>{
+    const handleFooter =()=>{
+      if(document.documentElement.clientWidth < 990){ 
+        setBigDevice(false);
       }
-     }
+    }
      window.addEventListener("resize", handleFooter);
 
     return () => {
       window.removeEventListener("resize", handleFooter);
     }; 
 
-   },[])
+  },[])
 
 
   return (
@@ -289,7 +291,7 @@ const Home = () => {
           </section>**/
         }
       </Layout>
-      {!smallDevice && 
+      {bigDevice && 
         <Footer>
           <div >
             SCROLL TO NAVIGATE
