@@ -170,7 +170,7 @@ const Home = () => {
             alt="scroll forward hand"/>
           <h2 >Let's <br/>Talk</h2>
         </Divider>
-        <Section id="contact">
+        <Section id="contact" tw="px-40">
             <h3 tw="text-4xl font-semibold underline">Contact Me</h3>
             <br/>
             <a
