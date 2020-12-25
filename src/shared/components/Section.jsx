@@ -6,7 +6,7 @@ const Section= styled.section`
     color: #201d1e;
     ${tw`
     relative
-    w-max
+    w-auto
     text-center
     flex
     flex-col
@@ -14,7 +14,6 @@ const Section= styled.section`
     items-center
     px-5
     h-5/6
-    overflow-hidden
     `}
 `;
 

@@ -48,9 +48,17 @@ const Home = () => {
 
   const [smallDevice, setSmallDevice] = useState(false);
    useEffect(()=>{
-     if(document.documentElement.clientWidth < 990){ 
+     const handleFooter =()=>{
+       if(document.documentElement.clientWidth < 990){ 
         setSmallDevice(true);
+      }
      }
+     window.addEventListener("resize", handleFooter);
+
+    return () => {
+      window.removeEventListener("resize", handleFooter);
+    }; 
+
    },[])
 
 
@@ -115,7 +123,7 @@ const Home = () => {
           alt="scroll forward hand"/>
           <h2>Selected <br/>Projects</h2>
         </Divider>
-        <Section tw="flex-row" id="projects">
+        <Section tw="flex-row px-10" id="projects">
           <Project
             title="Video Downloader"
             image={save}
