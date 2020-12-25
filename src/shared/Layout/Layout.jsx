@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, Fragment } from "react";
+import React, { useRef, useEffect, Fragment } from "react";
 import "twin.macro";
 import {
   Header,
@@ -8,17 +8,15 @@ import {
 } from "../components";
 
 import { gsap } from "gsap";
-import { Draggable } from "gsap/Draggable";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import name from "../../Assets/name.svg";
 
-gsap.registerPlugin(Draggable, ScrollToPlugin, ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 const Layout = ({ children}) => {
   const horizontalWidthRef = useRef();
   const dragBoundRef = useRef();
-  const [smallDevice, setSmallDevice] = useState(false);
 
   //resize hook
   useEffect(() => {
@@ -48,17 +46,14 @@ const Layout = ({ children}) => {
   }, []);
 
   useEffect(() => {
-    console.log(document.documentElement.clientWidth);
-    if (document.documentElement.clientWidth < 1000){
-        setSmallDevice(true)
-        Draggable.create(horizontalWidthRef.current, {
-          bounds: dragBoundRef.current,
-          allowNativeTouchScrolling:false,
-          type: "x",
-          cursor: "default",
-          throwProps: true,
-        });
-    }
+    //if (document.documentElement.clientWidth < 1000){
+    //    setSmallDevice(true)
+    //    Draggable.create(horizontalWidthRef.current, {
+    //      bounds: dragBoundRef.current,
+    //      allowNativeTouchScrolling:true,
+    //      type: "x",
+    //    });
+    // }
     
 
     const scroller = () => {

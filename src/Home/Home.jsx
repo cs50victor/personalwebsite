@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, {useState, useEffect, Fragment} from "react";
 import "twin.macro";
 import styled from "styled-components";
 //-
@@ -45,6 +45,14 @@ const Description = styled.p`
 `;
 
 const Home = () => {
+
+  const [smallDevice, setSmallDevice] = useState(false);
+   useEffect(()=>{
+     if(document.documentElement.clientWidth < 990){ 
+        setSmallDevice(true);
+     }
+   },[])
+
 
   return (
     <Fragment>
@@ -273,12 +281,14 @@ const Home = () => {
           </section>**/
         }
       </Layout>
-      <Footer>
+      {!smallDevice && 
+        <Footer>
           <div >
             SCROLL TO NAVIGATE
             <ArrowDownShort size="25px" tw="animate-bounce"/>
           </div>
         </Footer>
+      }
     </Fragment>
   );
 };
