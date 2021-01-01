@@ -9,10 +9,11 @@ import {
 
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import name from "../../Assets/name.svg";
 
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin,Draggable ,ScrollTrigger);
 
 const Layout = ({ children}) => {
   const horizontalWidthRef = useRef();
