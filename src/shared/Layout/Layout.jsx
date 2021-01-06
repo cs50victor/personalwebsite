@@ -59,13 +59,13 @@ const Layout = ({ children}) => {
   }, []);
 
   useEffect(() => {
-    if (window.innerWidth < 1000){
-      Draggable.create(horizontalWidthRef.current, {
-        bounds: dragBoundRef.current,
-        allowNativeTouchScrolling:true,
-        type: "x",
-      });
-    }
+    //if (window.innerWidth < 1000){
+    //  Draggable.create(horizontalWidthRef.current, {
+    //    bounds: dragBoundRef.current,
+    //    allowNativeTouchScrolling:true,
+    //    type: "x",
+    //  });
+    //}
     
 
     const scroller = () => {
