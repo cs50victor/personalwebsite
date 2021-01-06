@@ -100,7 +100,7 @@ const Home = () => {
                 draggable="false" 
               />
             </div>
-            <button
+            <a
               href={resume}
               target="_blank"
               rel="noopener noreferrer"
@@ -115,7 +115,7 @@ const Home = () => {
               focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
             >
               Resume
-            </button>
+            </a>
           </div>
         </About>
         <Divider>
