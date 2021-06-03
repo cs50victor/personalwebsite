@@ -132,7 +132,7 @@ const Home = () => {
             description="An online video downloader that allows you to save videos from several social media platforms to your device."
             type="Website"
             github="https://github.com/cs50victor/easiersave"
-            url="https://easiersave.com/"
+            url="https://easiersave.vercel.app/"
           />
           <Project
             title="Restaurant Site"
