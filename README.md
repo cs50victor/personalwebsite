@@ -19,3 +19,17 @@
 
 ## Design Tools
 ><img src="./forMarkDown/figma.svg" alt="figma" width="30"  style="margin:10px;"/><img src="./forMarkDown/photoshop.svg" alt="photoshop" width="40" style="margin:10px;"/>
+
+> Completed Projects
+```
+- Elon automobiles     [ [https://elonautomobiles.netlify.com](https://elonautomobiles.netlify.com/)]
+- Ai - Tic Tac Toe         [ [https://ai-tictactoe.netlify.app](https://ai-tictactoe.netlify.app/) ]
+- React-latest-chat      [ [https://react-latest-chat.netlify.app](https://react-latest-chat.netlify.app/) ]
+- Simple Demo Quiz   [ [https://simpledemoquiz.netlify.app/](https://simpledemoquiz.netlify.app/) ]
+- Easier save                [ [https://easiersave.com](https://easiersave.com/) ]
+- Tudors Restaurant    [ [https://tudorsrestaurant.herokuapp.com](https://tudorsrestaurant.herokuapp.com/) ]
+- Dad jokes 3d            [ [https://dadjokes3d.netlify.app](https://dadjokes3d.netlify.app/) ]
+- The Shoppies           [ [http://the-shoppies.cs50victor.vercel.app](http://the-shoppies.cs50victor.vercel.app/) ]
+- cspaint                     [ [https://github.com/cs50victor/cspaint](https://github.com/cs50victor/cspaint) ]
+- nandToTetris            [ [https://github.com/cs50victor/nandToTetris](https://github.com/cs50victor/nandToTetris) ]
+```
